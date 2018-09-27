@@ -1,5 +1,5 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "the-marketplace",
   "version": "1.0.0",
   "description": "Project 2 Starter",
   "main": "server.js",
@@ -15,8 +15,10 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
+    "method-override": "^3.0.0",
+    "mysql": "^2.16.0",
     "mysql2": "^1.5.3",
-    "sequelize": "^4.38.0"
+    "sequelize": "^4.39.0"
   },
   "devDependencies": {
     "chai": "^4.1.2",
@@ -26,5 +28,21 @@
     "eslint-plugin-prettier": "^2.6.2",
     "mocha": "^5.2.0",
     "prettier": "^1.13.7"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinkLoft/marketplace.git"
+  },
+  "keywords": [
+    "buy",
+    "sell"
+  ],
+  "author": "Kareem, Kyle, Rolanda, Parth",
+  "bugs": {
+    "url": "https://github.com/thinkLoft/marketplace/issues"
+  },
+  "homepage": "https://github.com/thinkLoft/marketplace#readme"
 }
