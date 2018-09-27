@@ -2,7 +2,7 @@
   "development": {
     "username": "root",
     "password": "password",
-    "database": "productsdb",
+    "database": "marketplacedb",
     "host": "localhost",
     "dialect": "mysql"
   },

@@ -1,13 +1,7 @@
--- DROP DATABASE IF EXISTS exampledb;
--- CREATE DATABASE exampledb;
+DROP DATABASE IF EXISTS marketplacedb;
+CREATE DATABASE marketplacedb;
 
--- DROP DATABASE IF EXISTS testdb;
--- CREATE DATABASE testdb;
-
-DROP DATABASE IF EXISTS productsdb;
-CREATE DATABASE
-IF NOT EXISTS productsdb;
-USE productsdb;
+USE marketplacedb;
 
 CREATE TABLE products
 (
