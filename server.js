@@ -1,48 +1,94 @@
-require("dotenv").config();
+//require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
-var db = require("./models");
+//npm package method overide added 
+var methodOverride = require('method-override');
 
+//var db = require("./models");
+
+var PORT = 3000;
+//var PORT = process.env.PORT || 3000;
 var app = express();
-var PORT = process.env.PORT || 3000;
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static("public"));
 
-// Handlebars
-app.engine(
-  "handlebars",
-  exphbs({
-    defaultLayout: "main"
+app.use(express.static(__dirname + '/public'));
+
+app.use(
+  bodyParser.urlencoded({
+    extended: false
   })
 );
-app.set("view engine", "handlebars");
 
-// Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+app.use(methodOverride('_method'));
 
-var syncOptions = { force: false };
+app.engine(
+  'handlebars',
+  exphbs({
+    defaultLayout: 'main'
+  })
+);
+app.set('view engine', 'handlebars');
 
-// If running a test, set syncOptions.force to true
-// clearing the `testdb`
-if (process.env.NODE_ENV === "test") {
-  syncOptions.force = true;
-}
+var routes = require('./routes/htmlRoutes.js');
+app.use('/', routes);
 
-// Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
-    console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
-    );
-  });
+// Starts the server to begin listening
+app.listen(PORT, function () {
+  console.log("App listening on PORT: " + PORT);
 });
+
+
+
+
+
+
+// // Middleware
+// app.use(bodyParser.urlencoded({
+//   extended: false
+// }));
+// app.use(bodyParser.json());
+// //__dirname used so public folder can be found from root directory
+// app.use(express.static(__dirname + "/public"));
+// //Method Override added
+// app.use(methodOverride('_method'));
+
+// // Handlebars
+// app.engine(
+//   "handlebars",
+//   exphbs({
+//     defaultLayout: "main"
+//   })
+// );
+// app.set("view engine", "handlebars");
+
+// // Routes
+// //var routeAPI = require("./routes/apiRoutes.js")(app);
+// var routes = require("./routes/htmlRoutes.js");
+// app.use('/', routes);
+// //app.use('/', routeAPI);
+// //app.use('/', routeHTML);
+
+// var syncOptions = {
+//   force: false
+// };
+
+// // If running a test, set syncOptions.force to true
+// // clearing the `testdb`
+// if (process.env.NODE_ENV === "test") {
+//   syncOptions.force = true;
+// }
+
+// // Starting the server, syncing our models ------------------------------------/
+// // db.sequelize.sync(syncOptions).then(function () {
+// //   app.listen(PORT, function () {
+// //     console.log(
+// //       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
+// //       PORT,
+// //       PORT
+// //     );
+// //   });
+// // });
 
 module.exports = app;
