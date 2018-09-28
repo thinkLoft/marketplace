@@ -8,7 +8,7 @@ body {
   font-size: 50px;
 }
 
-/* #head {
+nav {
   background-image: url('../styles/assets/images/Healthy\ Food\ On\ Cutting\ Board.jpg');
   margin-top: 40px;
   background-repeat: no-repeat;
@@ -20,7 +20,7 @@ body {
   border-bottom: 2px solid;
   border-top: 2px solid;
   border-color: red;
-} */
+}
 
 h2 {
   text-transform: uppercase;
@@ -28,40 +28,6 @@ h2 {
   margin-left: 20px;
 }
 
-h1 {
-  color: #ffffff;
-  text-shadow: -1px 0 0 #000000, 1px 1px 0 #000000, 2px -1px 0 #000000,
-    3px 0 0 #000000;
-  margin-left: 20px;
-}
-
-p {
-  margin-left: 20px;
-  margin-right: 20px;
-  font-size: 18px;
-}
-
-.section1 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 20px;
-  color: Black;
-  background-color: red;
-  border-bottom: 2px solid;
-  border-top: 2px solid;
-  border-color: black;
-}
-
-.section2 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 20px;
-  color: white;
-  background-color: black;
-  border-bottom: 2px solid;
-  border-top: 2px solid;
-  border-color: red;
-}
 
 footer {
   position: absolute;
@@ -73,3 +39,4 @@ footer {
   font-family: 'Charmonman', cursive;
   font-size: 15px;
 }
+
