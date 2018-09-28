@@ -7,31 +7,41 @@ CREATE TABLE products
 (
   id MEDIUMINT
   AUTO_INCREMENT NOT NULL,
-    title VARCHAR
+image VARCHAR
+  (2000) NOT NULL,
+title VARCHAR
   (100) NOT NULL, 
-    description VARCHAR
+description VARCHAR
   (255) NOT NULL,
-    category VARCHAR
+category VARCHAR
   (100) NOT NULL,
-    price DECIMAL
-  (10,2) NOT NULL,  
-    userID VARCHAR
+price DECIMAL
+  (10,2) NOT NULL,
+userID VARCHAR
   (100) NOT NULL,
-    sold BOOL DEFAULT FALSE,
-    primary key
+sold boolean DEFAULT FALSE,
+primary key
   (id)
 );
 
   select *
   from products;
 
-  INSERT INTO products
-    (title, description, category, price, userID)
+  CREATE TABLE user
+  (
+    userID MEDIUMINT
+    AUTO_INCREMENT NOT NULL,
+firstName VARCHAR
+    (255) NOT NULL,
+lastName VARCHAR
+    (255) NOT NULL, 
+email VARCHAR
+    (255) NOT NULL,
+password VARCHAR
+    (100) NOT NULL,
+primary key
+    (userID)
+);
 
-  VALUES
-    ("Boxer", "house-trained", "pet", 1000.00, 123),
-    ("Sofa Set", "3 Piece Sofa Set", "furniture", 1999.89, 234);
-
-
-  select *
-  from products;
+    select *
+    from user;
