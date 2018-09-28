@@ -4,17 +4,19 @@ body {
 }
 
 .navbar-brand{
+  margin-top: 25px;
   font-family: 'Charmonman', cursive;
-  font-size: 50px;
+  font-size: 40px;
+  margin-left:200px;
 }
 
-nav {
+header {
   background-image: url('../styles/assets/images/header\ background.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position-y: center;
-  height: 250px;
+  height: 150px;
   color: black;
 }
 
