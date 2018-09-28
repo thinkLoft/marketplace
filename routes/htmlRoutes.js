@@ -1,60 +1,25 @@
-var express = require('express');
-var router = express.Router();
-var products = require('../models/products.js')
+// ===============================================================================
+// DEPENDENCIES
+// We need to include the path package to get the correct file path for our html
+// ===============================================================================
+var path = require('path');
 
-router.get('/', function (req, res) {
-  products.all(function (products_data) {
-    console.log(products_data);
-    res.render('index', {
-      products_data
-    });
-    console.log(products_data);
-  })
-})
-module.exports = router;
+// ===============================================================================
+// ROUTING
+// ===============================================================================
 
+module.exports = function(app) {
+  // HTML GET Requests
+  // Below code handles when users "visit" a page.
+  // In each of the below cases the user is shown an HTML page of content
+  // ---------------------------------------------------------------------------
 
+  app.get('/signup', function(req, res) {
+    res.sendFile(path.join(__dirname, '../views/createAccount.html'));
+  });
 
-
-
-
-
-
-
-
-
-
-
-
-
-// var db = require("../models");
-
-// module.exports = function (app) {
-//   // Load index page
-//   app.get("/", function (req, res) {
-//     db.Example.findAll({}).then(function (dbExamples) {
-//       res.render("index", {
-//         msg: "Welcome!",
-//         examples: dbExamples
-//       });
-//     });
-//   });
-
-//   // Load example page and pass in an example by id
-//   app.get("/example/:id", function (req, res) {
-//     db.Example.findOne({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then(function (dbExample) {
-//       res.render("example", {
-//         example: dbExample
-//       });
-//     });
-//   });
-
-//   // Render 404 page for any unmatched routes
-//   app.get("*", function (req, res) {
-//     res.render("404");
-//   });
-// };
+  // If no matching route is found default to home
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, '../views/index.html'));
+  });
+};
