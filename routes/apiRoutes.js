@@ -1,5 +1,6 @@
 var db = require("../models");
 
+
 module.exports = function(app) {
   // Get all posts
   app.get("/api/posts", function(req, res) {
@@ -69,5 +70,4 @@ app.get("/api/post/:price", function(req, res) {
   }).then(function(dbmarketplacedb) {
     res.json(dbmarketplacedb);
   });
-});
-
+})
