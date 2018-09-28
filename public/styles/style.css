@@ -9,17 +9,13 @@ body {
 }
 
 nav {
-  background-image: url('../styles/assets/images/Healthy\ Food\ On\ Cutting\ Board.jpg');
-  margin-top: 40px;
+  background-image: url('../styles/assets/images/header\ background.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position-y: center;
-  height: 400px;
-  color: white;
-  border-bottom: 2px solid;
-  border-top: 2px solid;
-  border-color: red;
+  height: 250px;
+  color: black;
 }
 
 h2 {
