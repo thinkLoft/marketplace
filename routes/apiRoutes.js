@@ -11,74 +11,63 @@ module.exports = function(app) {
   // POST route for saving a new post
   app.post("/api/posts/createPost", function(req, res) {
     console.log(req.body);
-    db.Post.create({
+    db.marketplacedb.create({
       image: req.body.image,
       title: req.body.title,
       description: req.body.description,
       category: req.body.category,
       price: req.body.price
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbmarketplacedb) {
+        res.json(dbmarketplacedb);
       });
   });
 
   // Delete a post by id (must be user that creates ad)
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy(
+  app.delete("/api/posts/:id", function(req, res) {
+    db.marketplacedb.destroy(
       { 
       where: { 
         id: req.params.id 
       } 
-    }).then(function(dbExample) {
-      res.json(dbExample);
+    }).then(function(dbmarketplacedb) {
+      res.json(dbmarketplacedb);
     });
   });
 };
 
 // update ad that user created 
-app.put("/api/examples/:id", function (req, res) {
-  db.Example.update(req.body, 
+app.put("/api/post/:id", function (req, res) {
+  db.marketplacedb.update(req.body, 
     {
     where: {
       id: req.params.id
     }
   })
-  .then(function(dbExample) {
-    res.json(dbExample);
+  .then(function(dbmarketplacedb) {
+    res.json(dbmarketplacedb);
   })
 })
 
 // filter based on category 
-app.get("/api/examples/:category", function(req, res) {
-  db.Example.findAll({
+app.get("/api/posts/:category", function(req, res) {
+  db.marketplacedb.findAll({
     where: {
       category: req.params.category
     }
-  }).then(function(dbExamples) {
-    res.json(dbExamples);
+  }).then(function(dbmarketplacedb) {
+    res.json(dbmarketplacedb);
   });
 });
 
 // filter based on price 
-app.get("/api/examples/:price", function(req, res) {
-  db.Example.findAll({
+app.get("/api/post/:price", function(req, res) {
+  db.marketplacedb.findAll({
     where: {
       price: req.params.price
     }
-  }).then(function(dbExamples) {
-    res.json(dbExamples);
-  });
-});
-
-// filter based on user rating 
-app.get("/api/examples/:rating", function(req, res) {
-  db.Example.findAll({
-    where: {
-      rating: req.params.rating
-    }
-  }).then(function(dbExamples) {
-    res.json(dbExamples);
+  }).then(function(dbmarketplacedb) {
+    res.json(dbmarketplacedb);
   });
 });
 
