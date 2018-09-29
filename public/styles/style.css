@@ -1,6 +1,10 @@
 body {
   font-family: 'Slabo 27px', serif;
   font-family: 'Source Serif Pro', serif;
+  height: 100%;
+}
+html {
+  height: 100%;
 }
 
 /* Navbar */
@@ -39,10 +43,10 @@ h2 {
   font-weight: 500;
 }
 
-#login {
-width: 500px;
-height: 600px;
-position:relative;
+#loginPage {
+  height:100%;
+  width: 500px;
+  position:relative;
 margin:0 auto;
 background-image: url("assets/images/login.jpg");
 background-repeat: no-repeat;
@@ -51,10 +55,10 @@ background-size:cover;
 
 #loginForm{
   width: 350px;
-  margin-left:auto;
-  margin-right:auto;
-  position: relative;
-  top:25%;
+  margin-left:15%;
+  margin-right:15%;
+  position: absolute;
+  top:20%;
 }
 
 #emailAddressL,#passwordL{
@@ -70,6 +74,39 @@ opacity: 0.7;
   font-family: 'Charmonman', cursive;
   color:black;
   font-weight: 600;
+}
+
+/* createAccount page */
+
+#signUp{
+  height:100%;
+  width: 500px;
+  position:relative;
+margin:0 auto;
+background-image: url("assets/images/createAccount.jpg");
+background-repeat: no-repeat;
+background-size:cover;
+}
+
+
+#signUpForm{
+  width: 350px;
+  margin-left:12%;
+  margin-right:15%;
+  padding:20px;
+  position: absolute;
+  top:20%;
+ 
+}
+
+#signUpHead{
+  text-align: center;
+  font-family: 'Charmonman', cursive;
+  size:35px;
+  font-weight: 500;
+  color:white;
+  background-color: rgb(131,62,61);
+  opacity: 0.9;
 }
 /* footer */
 footer {
