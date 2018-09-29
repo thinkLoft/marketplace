@@ -39,7 +39,7 @@ h2 {
 #loginHead{
   text-align: center;
   font-family: 'Charmonman', cursive;
-  size:35px;
+  font-size:35px;
   font-weight: 500;
 }
 
@@ -102,7 +102,7 @@ opacity: 0.7;
 #signUpHead{
   text-align: center;
   font-family: 'Charmonman', cursive;
-  size:35px;
+  font-size:35px;
   font-weight: 500;
   color:white;
   background-color: rgb(131,62,61);
@@ -124,20 +124,26 @@ opacity: 0.7;
 #postAdHead{
   text-align: center;
   font-family: 'Charmonman', cursive;
-  size:35px;
+  font-size:35px;
   font-weight: 600;
-  color:white;
+  color:black;
 }
 
 #date, #username, #image, #price, #descriptionL{
   font-family: 'Charmonman', cursive;
-  size:25px;
-  font-weight: 600;
-  color:white;
+  font-size:20px;
+  font-weight: 500;
+  color:black;
 }
 
 #description{
   height: 100px;
+}
+
+#postAd{
+  background-color: white;
+  opacity: 0.7;
+  padding:15px;
 }
 
 #postAdFooter {
