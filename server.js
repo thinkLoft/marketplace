@@ -1,15 +1,13 @@
-//require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
+require('dotenv').config();
 
 //npm package method overide added 
 var methodOverride = require('method-override');
 
 //var db = require("./models");
 
-var PORT = 3000;
-//var PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 3000;
 var app = express();
 
 
@@ -20,19 +18,12 @@ app.use(
     extended: false
   })
 );
+app.use(bodyParser.json());
 
 app.use(methodOverride('_method'));
 
-app.engine(
-  'handlebars',
-  exphbs({
-    defaultLayout: 'main'
-  })
-);
-app.set('view engine', 'handlebars');
-
-var routes = require('./routes/htmlRoutes.js');
-app.use('/', routes);
+require('./routes/htmlRoutes')(app);
+// require('./routes/apiRoutes')(app);
 
 // Starts the server to begin listening
 app.listen(PORT, function () {
