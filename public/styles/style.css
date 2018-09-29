@@ -3,6 +3,7 @@ body {
   font-family: 'Source Serif Pro', serif;
 }
 
+/* Navbar */
 .navbar-brand{
   margin-top: 25px;
   font-family: 'Charmonman', cursive;
@@ -26,7 +27,28 @@ h2 {
   margin-left: 20px;
 }
 
+/* login page */
+#login {
+width: 500px;
+height: 600px;
+margin-left: auto;
+margin-right: auto;
+background-image: url("assets/images/login.jpg");
+background-repeat: no-repeat;
+background-size:cover;
+}
 
+#loginForm{
+  width: 350px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#loginButton{
+  margin: 0 auto;
+}
+
+/* footer */
 footer {
   position: absolute;
   bottom: 0;
