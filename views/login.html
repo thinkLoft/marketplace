@@ -14,20 +14,23 @@
 
 </head>
 
-<body>
+<body id="loginBody">
 
 
   <div id="loginPage" class="container">
     <form id="login">
-      <h1>Marketplace</h1>
+
       <div id="loginForm" class="form-group">
-        <label for="emailAddressL">E-mail Address</label>
+        <h1 id="loginHead">Marketplace</h1>
+        <br>
         <input type="email" class="form-control" id="emailAddressL" placeholder="E-Mail">
         <br>
-        <label for="passwordL">Password</label>
         <input type="password" class="form-control" id="passwordL" placeholder="Password">
         <br>
-        <button type="submit" class="btn btn-primary">Login</button>
+        <div id="loginButton">
+          <button id="enter" type="submit" class="btn btn-primary">Login</button>
+          <button id="return" type="submit" class="btn btn-primary">Home</button>
+        </div>
       </div>
     </form>
   </div>
