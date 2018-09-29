@@ -3,35 +3,51 @@ CREATE DATABASE marketplacedb;
 
 USE marketplacedb;
 
-CREATE TABLE products
+CREATE TABLE user
 (
-  id MEDIUMINT
+  userID MEDIUMINT
   AUTO_INCREMENT NOT NULL,
-    title VARCHAR
-  (100) NOT NULL, 
-    description VARCHAR
+firstName VARCHAR
   (255) NOT NULL,
-    category VARCHAR
+lastName VARCHAR
+  (255) NOT NULL, 
+email VARCHAR
+  (255) NOT NULL,
+password VARCHAR
   (100) NOT NULL,
-    price DECIMAL
-  (10,2) NOT NULL,  
-    userID VARCHAR
-  (100) NOT NULL,
-    sold BOOL DEFAULT FALSE,
-    primary key
-  (id)
+primary key
+  (userID)
 );
 
   select *
-  from products;
+  from user;
 
-  INSERT INTO products
-    (title, description, category, price, userID)
+  CREATE TABLE products
+  (
+    id MEDIUMINT
+    AUTO_INCREMENT NOT NULL,
+image VARCHAR
+    (2000) NOT NULL,
+title VARCHAR
+    (100) NOT NULL, 
+description VARCHAR
+    (255) NOT NULL,
+category VARCHAR
+    (100) NOT NULL,
+price DECIMAL
+    (10,2) NOT NULL,
+userID MEDIUMINT NOT NULL,
+sold boolean DEFAULT FALSE,
+primary key
+    (id),
+constraint fk_userID foreign key
+    (userID)
+references user
+    (userID)
+on
+    delete cascade on
+    update cascade);
 
-  VALUES
-    ("Boxer", "house-trained", "pet", 1000.00, 123),
-    ("Sofa Set", "3 Piece Sofa Set", "furniture", 1999.89, 234);
 
-
-  select *
-  from products;
+    select *
+    from products;
