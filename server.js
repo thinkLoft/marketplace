@@ -1,6 +1,6 @@
-//require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
+require('dotenv').config();
 
 //npm package method overide added 
 var methodOverride = require('method-override');
