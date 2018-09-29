@@ -1,60 +1,35 @@
-var express = require('express');
-var router = express.Router();
-var products = require('../models/products.js')
+var db = require("../models");
 
-router.get('/', function (req, res) {
-  products.all(function (products_data) {
-    console.log(products_data);
-    res.render('index', {
-      products_data
-    });
-    console.log(products_data);
-  })
-})
-module.exports = router;
+module.exports = function(app) {
+  // Load index page
+  app.get("/", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/index.html"));
+  });
 
+  app.get("/createAccount", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/createAccount.html"));
+  });
 
+  app.get("/feedback", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/feedback.html"));
+  });
 
+  app.get("/individualAd", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/individualAds.html"));
+  });
 
+  app.get("/login", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/login.html"));
+  });
 
+  // blog route loads blog.html
+  app.get("/postAd", function(req, res) {
+    res.sendFile(path.join(__dirname, "../views/postAd.html"));
+  });
 
+  // Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("404");
+  });
 
-
-
-
-
-
-
-
-
-// var db = require("../models");
-
-// module.exports = function (app) {
-//   // Load index page
-//   app.get("/", function (req, res) {
-//     db.Example.findAll({}).then(function (dbExamples) {
-//       res.render("index", {
-//         msg: "Welcome!",
-//         examples: dbExamples
-//       });
-//     });
-//   });
-
-//   // Load example page and pass in an example by id
-//   app.get("/example/:id", function (req, res) {
-//     db.Example.findOne({
-//       where: {
-//         id: req.params.id
-//       }
-//     }).then(function (dbExample) {
-//       res.render("example", {
-//         example: dbExample
-//       });
-//     });
-//   });
-
-//   // Render 404 page for any unmatched routes
-//   app.get("*", function (req, res) {
-//     res.render("404");
-//   });
-// };
+};

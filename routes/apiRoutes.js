@@ -1,24 +1,73 @@
-// var db = require("../models");
+var db = require("../models");
 
-// module.exports = function(app) {
-//   // Get all examples
-//   app.get("/api/examples", function(req, res) {
-//     db.Example.findAll({}).then(function(dbExamples) {
-//       res.json(dbExamples);
-//     });
-//   });
 
-//   // Create a new example
-//   app.post("/api/examples", function(req, res) {
-//     db.Example.create(req.body).then(function(dbExample) {
-//       res.json(dbExample);
-//     });
-//   });
+module.exports = function(app) {
+  // Get all posts
+  app.get("/api/posts", function(req, res) {
+    db.marketplacedb.findAll({}).then(function(dbmarketplacedb) {
+      res.json(dbmarketplacedb); 
+    });
+  });
 
-//   // Delete an example by id
-//   app.delete("/api/examples/:id", function(req, res) {
-//     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-//       res.json(dbExample);
-//     });
-//   });
-// };
+  // POST route for saving a new post
+  app.post("/api/posts/createPost", function(req, res) {
+    console.log(req.body);
+    db.marketplacedb.create({
+      image: req.body.image,
+      title: req.body.title,
+      description: req.body.description,
+      category: req.body.category,
+      price: req.body.price
+    })
+      .then(function(dbmarketplacedb) {
+        res.json(dbmarketplacedb);
+      });
+  });
+
+  // Delete a post by id (must be user that creates ad)
+  app.delete("/api/posts/:id", function(req, res) {
+    db.marketplacedb.destroy(
+      { 
+      where: { 
+        id: req.params.id 
+      } 
+    }).then(function(dbmarketplacedb) {
+      res.json(dbmarketplacedb);
+    });
+  });
+};
+
+// update ad that user created 
+app.put("/api/post/:id", function (req, res) {
+  db.marketplacedb.update(req.body, 
+    {
+    where: {
+      id: req.params.id
+    }
+  })
+  .then(function(dbmarketplacedb) {
+    res.json(dbmarketplacedb);
+  })
+})
+
+// filter based on category 
+app.get("/api/posts/:category", function(req, res) {
+  db.marketplacedb.findAll({
+    where: {
+      category: req.params.category
+    }
+  }).then(function(dbmarketplacedb) {
+    res.json(dbmarketplacedb);
+  });
+});
+
+// filter based on price 
+app.get("/api/post/:price", function(req, res) {
+  db.marketplacedb.findAll({
+    where: {
+      price: req.params.price
+    }
+  }).then(function(dbmarketplacedb) {
+    res.json(dbmarketplacedb);
+  });
+})
