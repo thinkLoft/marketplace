@@ -84,6 +84,34 @@ var orm = {
         cb(result);
       }
     );
+  },
+
+  deleteProduct: function(tableInput, id, cb) {
+    connection.query(
+      "delete " +
+        "from " +
+        tableInput +
+        "where id = " + id + ";",
+      function(err, result) {
+        // if (err) throw err;
+        console.log("[mysql error]", err);
+        cb(result);
+      }
+    );
+  },
+
+  deleteUser: function(tableInput, userID, cb) {
+    connection.query(
+      "delete " +
+        "from " +
+        tableInput +
+        "where userID = " + userID + ";",
+      function(err, result) {
+        // if (err) throw err;
+        console.log("[mysql error]", err);
+        cb(result);
+      }
+    );
   }
 
 };
