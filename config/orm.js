@@ -101,6 +101,7 @@ var orm = {
     );
   },
 
+   // delete user query
   deleteUser: function(tableInput, userID, cb) {
     connection.query(
       "delete " +
