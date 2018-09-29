@@ -1,4 +1,4 @@
-body {
+#createAccountBody, #loginBody {
   font-family: 'Slabo 27px', serif;
   font-family: 'Source Serif Pro', serif;
   height: 100%;
@@ -33,7 +33,7 @@ h2 {
 
 /* login page */
 
-#loginBody{
+#loginBody, #createAccountBody, #postAdBody{
   background-color: rgb(212,205,196);
 }
 #loginHead{
@@ -82,10 +82,10 @@ opacity: 0.7;
   height:100%;
   width: 500px;
   position:relative;
-margin:0 auto;
-background-image: url("assets/images/createAccount.jpg");
-background-repeat: no-repeat;
-background-size:cover;
+  margin:0 auto;
+  background-image: url("assets/images/createAccount.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
 }
 
 
@@ -108,6 +108,51 @@ background-size:cover;
   background-color: rgb(131,62,61);
   opacity: 0.9;
 }
+
+/* postAd page */
+
+#postAdPage{
+  width: 650px;
+  position:relative;
+  margin:0 auto;
+  background-image: url("assets/images/postAd.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  padding: 35px;
+}
+
+#postAdHead{
+  text-align: center;
+  font-family: 'Charmonman', cursive;
+  size:35px;
+  font-weight: 600;
+  color:white;
+}
+
+#date, #username, #image, #price, #descriptionL{
+  font-family: 'Charmonman', cursive;
+  size:25px;
+  font-weight: 600;
+  color:white;
+}
+
+#description{
+  height: 100px;
+}
+
+#postAdFooter {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgb(131,62,61);
+  font-family: 'Charmonman', cursive;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
 /* footer */
 footer {
   position: absolute;
