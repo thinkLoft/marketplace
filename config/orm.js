@@ -1,4 +1,5 @@
 var connection = require("./connection.js");
+var firebase = require("./firebase.js");
 
 var orm = {
   selectAll: function(tableInput, cb) {
@@ -78,6 +79,36 @@ var orm = {
         tableInput +
         " " +
         "set firstName = "+ '"'+firstName+'"' + ", lastName = "+ '"'+lastName+'"' + ", email = "+ '"'+email+'"' + ", password = "+ '"'+password+'"' + " where userID= "+userID+ ";",
+      function(err, result) {
+        // if (err) throw err;
+        console.log("[mysql error]", err);
+        cb(result);
+      }
+    );
+  },
+
+  // delete products query
+  deleteProduct: function(tableInput, id, cb) {
+    connection.query(
+      "delete " +
+        "from " +
+        tableInput +
+        "where id = " + id + ";",
+      function(err, result) {
+        // if (err) throw err;
+        console.log("[mysql error]", err);
+        cb(result);
+      }
+    );
+  },
+
+   // delete user query
+  deleteUser: function(tableInput, userID, cb) {
+    connection.query(
+      "delete " +
+        "from " +
+        tableInput +
+        "where userID = " + userID + ";",
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);
