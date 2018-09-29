@@ -71,3 +71,14 @@ app.get("/api/post/:price", function(req, res) {
     res.json(dbmarketplacedb);
   });
 })
+
+// search bar (search by title)
+app.get("/api/post/:title", function(req, res) {
+  db.marketplacedb.findAll({
+    where: {
+      title: req.params.title
+    }
+  }).then(function(dbmarketplacedb) {
+    res.json(dbmarketplacedb);
+  });
+})

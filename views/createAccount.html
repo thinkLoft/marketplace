@@ -15,36 +15,36 @@
 </head>
 
 <body>
-  <header>
-    <a class="navbar-brand">Marketplace</a>
-    <div class="insertNav" id="nav">
-      <!-- Nav will get filled in here-->
-    </div>
-  </header>
-  <div id="signUp" class="container">
-    <form>
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="firstName">First Name</label>
-          <input type="text" class="form-control" id="firstName" placeholder="First Name">
-        </div>
-        <div class="form-group col-md-6">
-          <label for="lastName">Last Name</label>
-          <input type="text" class="form-control" id="lastName" placeholder="Last Name">
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="emailAddress">E-mail Address</label>
-        <input type="email" class="form-control" id="emailAddress" placeholder="E-Mail">
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" placeholder="Password">
-      </div>
 
-      <button type="submit" class="btn btn-primary">Create Account</button>
+  <div id="signUp" class="container">
+    <form id="createAccount">
+
+      <div id="signUpForm" class="form-group">
+        <h1 id="signUpHead">Marketplace</h1>
+        <br>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name">
+          </div>
+          <div class="form-group col-md-6">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name">
+          </div>
+        </div>
+        <div class="form-group">
+          <input type="email" class="form-control" id="emailAddress" placeholder="E-Mail">
+        </div>
+        <div class="form-group">
+          <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+
+        <div id="loginButton">
+          <button id="enter" type="submit" class="btn btn-primary">Create Account</button>
+
+        </div>
+      </div>
     </form>
   </div>
+
   <footer class="footer">
     <div class="container">
       <span>Marketplace - Buy, Sell, Discover</span>
