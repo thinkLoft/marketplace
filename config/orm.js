@@ -86,6 +86,7 @@ var orm = {
     );
   },
 
+  // delete products query
   deleteProduct: function(tableInput, id, cb) {
     connection.query(
       "delete " +
