@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="../public/styles/style.css">
+  <link rel="stylesheet" type="text/css" href="../styles/style.css">
   <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700" rel="stylesheet">
 
 </head>
@@ -44,27 +44,32 @@
 
 
     <form id="opinions">
+      <h1 id="feedbackHead">Have your say</h1>
+      <br>
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="datePostedP">Date Posted</label>
-          <input type="date" class="form-control" id="datePostedP" placeholder="Today's Date">
+          <label id="datePostedP" for="datePosted">Date Posted</label>
+          <input type="date" class="form-control" id="datePosted" placeholder="Today's Date">
         </div>
         <div class="form-group col-md-4">
-          <label for="firstNameP">First Name</label>
+          <label id="datePostedP" for="firstNameP">First Name</label>
           <input type="text" class="form-control" id="firstNameP">
         </div>
         <div class="form-group col-md-4">
-          <label for="lastNameP">Last Name</label>
+          <label id="lastNameP" for="lastNameP">Last Name</label>
           <input type="text" class="form-control" id="lastNameP">
         </div>
       </div>
 
       <div class="form-group">
-        <label for="feedback">How was your experience using Marketplace?</label>
+        <label id="feedbackP" for="feedback">How was your experience using Marketplace?</label>
         <input type="text" maxlength="500" class="form-control" id="feedback">
       </div>
 
-      <button type="submit" class="btn btn-primary">Share</button>
+      <div id="loginButton">
+        <button id="enter" type="submit" class="btn btn-primary">Share</button>
+
+      </div>
     </form>
 
   </div>

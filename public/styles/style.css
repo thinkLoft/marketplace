@@ -160,25 +160,54 @@ opacity: 0.7;
 }
 
 /* feedback page */
+#feedbackHead{
+  text-align: center;
+  font-family: 'Charmonman', cursive;
+  font-size:35px;
+  color:black;
+}
+
+th{
+  text-align: center;
+  font-family: 'Charmonman', cursive;
+  font-size:25px;
+  color:black;
+}
+
+#datePostedP,#firstNameP,#lastNameP,#feedbackP{
+  font-family: 'Charmonman', cursive;
+  font-size:20px;
+  color:black;
+}
 
 #feedback{
   height: 100px;
 }
 
 #feedbackTable{
-  width:750px;
+  width:725px;
   float:left;
+  position:absolute;
 }
 
 #opinions{
-  width: 550px;
+  width: 575px;
   float:right;
+  background-color:white;
+  padding:15px;
+  opacity: 0.9;
 }
 
 #main{
-  padding: 25px;
+  padding: 20px;
 }
 
+#feedbackBody{
+  margin:0 auto;
+  background-image: url("assets/images/feedback.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
 /* footer */
 footer {
   position: absolute;
