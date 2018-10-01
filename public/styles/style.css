@@ -142,7 +142,7 @@ opacity: 0.7;
 
 #postAd{
   background-color: white;
-  opacity: 0.7;
+  opacity: 0.8;
   padding:15px;
 }
 
@@ -157,6 +157,26 @@ opacity: 0.7;
   color: white;
   font-size: 15px;
   text-align: center;
+}
+
+/* feedback page */
+
+#feedback{
+  height: 100px;
+}
+
+#feedbackTable{
+  width:750px;
+  float:left;
+}
+
+#opinions{
+  width: 550px;
+  float:right;
+}
+
+#main{
+  padding: 25px;
 }
 
 /* footer */

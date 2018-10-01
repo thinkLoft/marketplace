@@ -9,12 +9,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="../styles/style.css">
+  <link rel="stylesheet" type="text/css" href="../public/styles/style.css">
   <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700" rel="stylesheet">
 
 </head>
 
-<body>
+<body id="feedbackBody">
 
   <header>
     <a class="navbar-brand">Marketplace</a>
@@ -22,9 +22,28 @@
       <!-- Nav will get filled in here-->
     </div>
   </header>
+  <div id="main">
+    <!-- container for feedback table -->
 
-  <div id="feedbackPage" class="container">
-    <form>
+    <table id="feedbackTable" class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- feedback to be filled in here -->
+      </tbody>
+    </table>
+
+
+    <!-- container for form -->
+
+
+    <form id="opinions">
       <div class="form-row">
         <div class="form-group col-md-4">
           <label for="datePostedP">Date Posted</label>
@@ -32,11 +51,11 @@
         </div>
         <div class="form-group col-md-4">
           <label for="firstNameP">First Name</label>
-          <input type="text" class="form-control" id="firstNameP" placeholder="First Name">
+          <input type="text" class="form-control" id="firstNameP">
         </div>
         <div class="form-group col-md-4">
           <label for="lastNameP">Last Name</label>
-          <input type="text" class="form-control" id="lastNameP" placeholder="Last Name">
+          <input type="text" class="form-control" id="lastNameP">
         </div>
       </div>
 
@@ -45,8 +64,9 @@
         <input type="text" maxlength="500" class="form-control" id="feedback">
       </div>
 
-      <button type="submit" class="btn btn-primary">Post</button>
+      <button type="submit" class="btn btn-primary">Share</button>
     </form>
+
   </div>
 
   <footer class="footer">
