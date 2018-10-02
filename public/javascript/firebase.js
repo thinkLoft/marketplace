@@ -58,16 +58,26 @@ $(document).ready(function() {
       .auth()
       .createUserWithEmailAndPassword(email, pwd)
       .then(function() {
-        email = email;
-        fName = $('#firstName')
-          .val()
-          .trim();
-        lName = $('#lastName')
-          .val()
-          .trim();
-          alert(
-          'Account successfully created! You will be re-directed to the home page'
-        );
+
+            // Constructing an Account object to hand to the database
+      var account = {
+        email: email,
+        fName: $('#firstName')
+        .val()
+        .trim(),
+        lName: $('#lastName')
+        .val()
+        .trim()
+    };
+        // AJAX CALL TO UPDATE db
+        $.ajax({
+          method: "PUT",
+          url: "/api/createAccount",
+          data: account
+        })
+          .then(function() {
+            window.location.href = "/";
+          });
       })
       .catch(function(error) {
         // Handle Errors here.
