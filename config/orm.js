@@ -1,5 +1,5 @@
 var connection = require("./connection.js");
-var firebase = require("./firebase.js");
+// var firebase = require("./firebase.js");
 
 var orm = {
   selectAll: function(tableInput, cb) {
@@ -7,19 +7,40 @@ var orm = {
       err,
       result
     ) {
-      // if (err) throw err;
-      console.log("[mysql error]", err);
+      if (err) throw err;
+      // console.log("[mysql error]", err);
       cb(result);
     });
   },
 
-  insertProduct: function(tableInput, imageURL, title, description, category, price, userID, cb) {
+  insertProduct: function(
+    tableInput,
+    imageURL,
+    title,
+    description,
+    category,
+    price,
+    userID,
+    cb
+  ) {
     connection.query(
       "insert " +
         "into " +
         tableInput +
         " " +
-        "(image, title, description, category, price, userID, sold) values ('"+imageURL+"', '"+title+"', '"+description+"', '"+category+"', " + price + ", " + userID + ");",
+        "(image, title, description, category, price, userID, sold) values ('" +
+        imageURL +
+        "', '" +
+        title +
+        "', '" +
+        description +
+        "', '" +
+        category +
+        "', " +
+        price +
+        ", " +
+        userID +
+        ");",
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);
@@ -34,7 +55,15 @@ var orm = {
         "into " +
         tableInput +
         " " +
-        "(firstName, lastName, email, password) values ('"+firstName+"', '"+lastName+"', '"+email+"', '"+password+"');",
+        "(firstName, lastName, email, password) values ('" +
+        firstName +
+        "', '" +
+        lastName +
+        "', '" +
+        email +
+        "', '" +
+        password +
+        "');",
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);
@@ -59,12 +88,41 @@ var orm = {
     );
   },
 
-  updateProduct: function(tableInput, imageURL, title, description, category, price, id, cb) {
+  updateProduct: function(
+    tableInput,
+    imageURL,
+    title,
+    description,
+    category,
+    price,
+    id,
+    cb
+  ) {
     connection.query(
       "update " +
         tableInput +
         " " +
-        "set image = "+ '"'+imageURL+'"' + ", title = "+ '"'+title+'"' + ", description = "+ '"'+description+'"' + ", category = "+ '"'+category+'"' + ", price = "+price+ " where id= "+id+ ";",
+        "set image = " +
+        '"' +
+        imageURL +
+        '"' +
+        ", title = " +
+        '"' +
+        title +
+        '"' +
+        ", description = " +
+        '"' +
+        description +
+        '"' +
+        ", category = " +
+        '"' +
+        category +
+        '"' +
+        ", price = " +
+        price +
+        " where id= " +
+        id +
+        ";",
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);
@@ -73,12 +131,38 @@ var orm = {
     );
   },
 
-  updateUser: function(tableInput, firstName, lastName, email, password, userID, cb) {
+  updateUser: function(
+    tableInput,
+    firstName,
+    lastName,
+    email,
+    password,
+    userID,
+    cb
+  ) {
     connection.query(
       "update " +
         tableInput +
         " " +
-        "set firstName = "+ '"'+firstName+'"' + ", lastName = "+ '"'+lastName+'"' + ", email = "+ '"'+email+'"' + ", password = "+ '"'+password+'"' + " where userID= "+userID+ ";",
+        "set firstName = " +
+        '"' +
+        firstName +
+        '"' +
+        ", lastName = " +
+        '"' +
+        lastName +
+        '"' +
+        ", email = " +
+        '"' +
+        email +
+        '"' +
+        ", password = " +
+        '"' +
+        password +
+        '"' +
+        " where userID= " +
+        userID +
+        ";",
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);
@@ -90,10 +174,7 @@ var orm = {
   // delete products query
   deleteProduct: function(tableInput, id, cb) {
     connection.query(
-      "delete " +
-        "from " +
-        tableInput +
-        "where id = " + id + ";",
+      "delete " + "from " + tableInput + "where id = " + id + ";",
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);
@@ -102,13 +183,10 @@ var orm = {
     );
   },
 
-   // delete user query
+  // delete user query
   deleteUser: function(tableInput, userID, cb) {
     connection.query(
-      "delete " +
-        "from " +
-        tableInput +
-        "where userID = " + userID + ";",
+      "delete " + "from " + tableInput + "where userID = " + userID + ";",
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);
@@ -116,7 +194,6 @@ var orm = {
       }
     );
   }
-
 };
 
 module.exports = orm;

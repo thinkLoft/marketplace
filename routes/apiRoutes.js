@@ -1,15 +1,26 @@
-var db = require("../models");
+var express = require("express");
+var router = express.Router();
+var path = require("path");
+var db = require("../models/models.js");
 
-
-module.exports = function(app) {
+/*module.exports = function(app) {
   // Get all posts
   app.get("/api/posts", function(req, res) {
     db.marketplacedb.findAll({}).then(function(dbmarketplacedb) {
-      res.json(dbmarketplacedb); 
+      res.json(dbmarketplacedb);
     });
   });
+};
+*/
 
-  // POST route for saving a new post
+// router.get("/api/posts", function(req, res) {
+//   db.selectAllUser(function(user_data) {
+//     console.log(user_data);
+//     res.render("index.html", { user_data });
+//   });
+// });
+
+/* // POST route for saving a new post
   app.post("/api/posts/createPost", function(req, res) {
     console.log(req.body);
     db.marketplacedb.create({
@@ -82,3 +93,6 @@ app.get("/api/post/:title", function(req, res) {
     res.json(dbmarketplacedb);
   });
 })
+*/
+
+module.exports = router;

@@ -1,17 +1,17 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-require('dotenv').config();
+// var db = require("../models/models.js");
+require("dotenv").config();
 
-//npm package method overide added 
-var methodOverride = require('method-override');
+//npm package method overide added
+var methodOverride = require("method-override");
 
 //var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 var app = express();
 
-
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + "/public"));
 
 app.use(
   bodyParser.urlencoded({
@@ -20,20 +20,19 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 
-require('./routes/htmlRoutes')(app);
-// require('./routes/apiRoutes')(app);
+// require("./routes/htmlRoutes.js")(app);
+// require("./routes/apiRoutes.js")(app);
+
+var routes = require("./routes/htmlRoutes.js");
+
+app.use(routes);
 
 // Starts the server to begin listening
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
 });
-
-
-
-
-
 
 // // Middleware
 // app.use(bodyParser.urlencoded({
@@ -82,4 +81,4 @@ app.listen(PORT, function () {
 // //   });
 // // });
 
-module.exports = app;
+// module.exports = app;
