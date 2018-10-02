@@ -1,6 +1,16 @@
-# Twitter API keys
+# Firebase Authentication
+FIREBASE_KEY=AIzaSyBgumuOwqrl-8Pz1-DSmqFmZpzyg_nnSpk
+FIREBASE_DOMAIN=marketplace-942ee.firebaseapp.com
+FIREBASE_URL=https://marketplace-942ee.firebaseio.com
+FIREBASE_ID=marketplace-942ee
+FIREBASE_BUCKET=marketplace-942ee.appspot.com
+FIREBASE_SENDERID=33639365467
 
-TWITTER_CONSUMER_KEY=your-twitter-consumer-key
-TWITTER_CONSUMER_SECRET=your-twitter-consumer-secret
-TWITTER_ACCESS_TOKEN_KEY=your-access-token-key
-TWITTER_ACCESS_TOKEN_SECRET=your-twitter-access-token-secret
+# Twitter API keys
+TWITTER_CONSUMER_KEY=QS6I0fjd5BMcwORRAUe2Y9kt4 
+TWITTER_CONSUMER_SECRET=hd1isXKx2G6sG7nNO7LDrQFvaPxcaFgrMqM6LxgQg4B4N9Fe2E
+TWITTER_ACCESS_TOKEN_KEY=233403569-HkIiGZmVntu2zkjaDaWaciVhfNrAMTzjwiVfNoMl
+TWITTER_ACCESS_TOKEN_SECRET=G36anJOsGbmKunwBGgALaSFM4j47NpYcxfGk7YBwPZ16T
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=s1mpl3
