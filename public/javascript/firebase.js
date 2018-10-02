@@ -40,3 +40,115 @@ function displayNav(x) {
   $('#nav').html(html);
 }
 
+$(document).ready(function() {
+
+  // ================================
+  // ======= Authentication =========
+  // ================================
+
+  // SIGN UP  LISTENER
+  $(document).on('click', '#enter', function() {
+    email = $('#emailAddress')
+      .val()
+      .trim();
+    pwd = $('#password')
+      .val()
+      .trim();
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, pwd)
+      .then(function() {
+        email = email;
+        fName = $('#firstName')
+          .val()
+          .trim();
+        lName = $('#lastName')
+          .val()
+          .trim();
+          alert(
+          'Account successfully created! You will be re-directed to the home page'
+        );
+      })
+      .catch(function(error) {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorCode);
+        alert(errorMessage);
+        // ...
+      });
+  });
+
+  // ================================
+  // =========PostAd function========
+  // ================================
+
+  $('#submitAd').on('click', function() {
+    event.preventDefault();
+    postAd(sessionUser.email);
+  });
+
+  function postAd(currentUser) {
+    var userID = currentUser;
+    var dbRef = db.ref('ads');
+    var title = $('#title')
+      .val()
+      .trim();
+    var description = $('#description')
+      .val()
+      .trim();
+    var price = $('#price')
+      .val()
+      .trim();
+    var file = $('#image').get(0).files[0];
+    var imgName = $('#image')
+      .val()
+      .trim();
+
+    if (
+      userID.length > 0 &&
+      title.length > 0 &&
+      imgName.length > 0 &&
+      description.length > 0 &&
+      price.length > 0
+    ) {
+      var adID = dbRef.push().key;
+      var fileName = file.name;
+      var imgPath = '/images/' + adID + '/' + fileName;
+      var sRef = store.ref(imgPath);
+
+      sRef
+        .put(file)
+        .then(function() {
+          console.log('Image upload successful');
+          return sRef.getDownloadURL();
+        })
+        .then(function(imageURL) {
+          console.log('url:' + imageURL);
+          console.log('Download URL acquired successfully');
+
+          var ad = {
+            userID: userID,
+            title: title,
+            imageURL: imageURL,
+            storagePath: imgPath,
+            description: description,
+            price: price,
+            dateAdded: firebase.database.ServerValue.TIMESTAMP
+          };
+
+          var adRef = dbRef.child(adID);
+          adRef.update(ad);
+        })
+        .then(function() {
+          console.log('Successfully saved to database.');
+          $('#postForm')[0].reset();
+        })
+        .catch(function(error) {
+          console.log('Error:' + error);
+        });
+    }
+  }
+
+  // bottom of on document ready
+});
