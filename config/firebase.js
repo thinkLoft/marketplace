@@ -1,5 +1,8 @@
+ 
   // Initialize Firebase
   var firebase = require('firebase');
+  var $ = require("jquery");
+
   var config = {
     apiKey: process.env.FIREBASE_KEY,
     authDomain: process.env.FIREBASE_DOMAIN,
@@ -11,8 +14,5 @@
 
   firebase.initializeApp(config);
 
-  firebase.auth().onAuthStateChanged(function(user) {
-    console.log(user);
-    });
-
   module.exports = firebase;
+
