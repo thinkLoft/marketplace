@@ -5,7 +5,7 @@ module.exports = function(app) {
   // =========================
   // ======= Navigation ======
   // =========================
-  app.get('api/createAccount', function(req, res) {
+  app.post('/api/createAccount', function(req, res) {
   // REAL-TIME LISTENER
   // firebase.auth().onAuthStateChanged(function(user) {
   //   var html = '';
