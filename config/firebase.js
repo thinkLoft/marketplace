@@ -12,7 +12,7 @@
   firebase.initializeApp(config);
 
   firebase.auth().onAuthStateChanged(function(user) {
-    console.log(user);
+    // console.log('user:', user);
     });
 
   module.exports = firebase;

@@ -1,5 +1,5 @@
-var connection = require("./connection.js");
-var firebase = require("./firebase.js");
+var connection = require("./connection");
+var firebase = require("./firebase");
 
 var orm = {
   selectAll: function(tableInput, cb) {
@@ -7,19 +7,18 @@ var orm = {
       err,
       result
     ) {
-      // if (err) throw err;
-      console.log("[mysql error]", err);
+      if (err) throw err;
+      // console.log("[mysql error]", err);
       cb(result);
     });
   },
 
   insertProduct: function(tableInput, imageURL, title, description, category, price, userID, cb) {
     connection.query(
-      "insert " +
-        "into " +
+      "insert into " +
         tableInput +
-        " " +
-        "(image, title, description, category, price, userID, sold) values ('"+imageURL+"', '"+title+"', '"+description+"', '"+category+"', " + price + ", " + userID + ");",
+        " (image, title, description, category, price, userID, sold) values ('"+imageURL+"', '"+title+"', '"+description+"', '"+category+"', " + price + ", " + userID + ");",
+        [imageURL, title, description, category, price, userID],
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);
@@ -28,13 +27,13 @@ var orm = {
     );
   },
 
-  insertUser: function(tableInput, firstName, lastName, email, password, cb) {
+  insertUser: function(tableInput, firstName, lastName, email, cb) {
     connection.query(
       "insert " +
         "into " +
         tableInput +
         " " +
-        "(firstName, lastName, email, password) values ('"+firstName+"', '"+lastName+"', '"+email+"', '"+password+"');",
+        "(firstName, lastName, email) values ('"+firstName+"', '"+lastName+"', '"+email+"');",
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);
@@ -73,12 +72,12 @@ var orm = {
     );
   },
 
-  updateUser: function(tableInput, firstName, lastName, email, password, userID, cb) {
+  updateUser: function(tableInput, firstName, lastName, email, userID, cb) {
     connection.query(
       "update " +
         tableInput +
         " " +
-        "set firstName = "+ '"'+firstName+'"' + ", lastName = "+ '"'+lastName+'"' + ", email = "+ '"'+email+'"' + ", password = "+ '"'+password+'"' + " where userID= "+userID+ ";",
+        "set firstName = "+ '"'+firstName+'"' + ", lastName = "+ '"'+lastName+'"' + ", email = "+ '"'+email+'"' + ", where userID= "+userID+ ";",
       function(err, result) {
         // if (err) throw err;
         console.log("[mysql error]", err);

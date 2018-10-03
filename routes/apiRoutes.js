@@ -1,84 +1,121 @@
-var db = require("../models");
+var db = require("../models/models");
+var express = require("express");
+var app = express.Router();
 
+/////////// POST INFORMATION \\\\\\\\\
 
-module.exports = function(app) {
-  // Get all posts
-  app.get("/api/posts", function(req, res) {
-    db.marketplacedb.findAll({}).then(function(dbmarketplacedb) {
-      res.json(dbmarketplacedb); 
-    });
+// Get all posts
+app.get("/api/posts/", function(req, res) {
+  db.selectAllProducts(function(data) {
+    console.log(JSON.stringify(data));
   });
+});
 
-  // POST route for saving a new post
-  app.post("/api/posts/createPost", function(req, res) {
-    console.log(req.body);
-    db.marketplacedb.create({
-      image: req.body.image,
-      title: req.body.title,
-      description: req.body.description,
-      category: req.body.category,
-      price: req.body.price
-    })
-      .then(function(dbmarketplacedb) {
-        res.json(dbmarketplacedb);
-      });
+// POST route for saving a new post
+app.post("/api/posts/createPost", function(req, res) {
+  console.log(req.body);
+  db.insertProductsProducts({ 
+    image: req.body.image,
+    title: req.body.title,
+    description: req.body.description,
+    category: req.body.category,
+    price: req.body.price
+  })
+});
+
+// Delete a post by id (must be user that creates ad)
+app.delete("/api/posts/:id", function(req, res) {
+  db.deleteProductProduct(
+    { 
+    where: { 
+      id: req.params.id 
+    } 
   });
+});
 
-  // Delete a post by id (must be user that creates ad)
-  app.delete("/api/posts/:id", function(req, res) {
-    db.marketplacedb.destroy(
-      { 
-      where: { 
-        id: req.params.id 
-      } 
-    }).then(function(dbmarketplacedb) {
-      res.json(dbmarketplacedb);
-    });
-  });
-};
 
-// update ad that user created 
+// update ad created by unique user 
 app.put("/api/post/:id", function (req, res) {
-  db.marketplacedb.update(req.body, 
+  db.updateUserUser(req.body, 
     {
     where: {
       id: req.params.id
     }
   })
-  .then(function(dbmarketplacedb) {
-    res.json(dbmarketplacedb);
-  })
 })
+
+/////// FILTER and SEARCH BAR \\\\\\\\\\
 
 // filter based on category 
 app.get("/api/posts/:category", function(req, res) {
-  db.marketplacedb.findAll({
+  db.selectAllProducts({
     where: {
       category: req.params.category
     }
-  }).then(function(dbmarketplacedb) {
-    res.json(dbmarketplacedb);
   });
 });
 
 // filter based on price 
 app.get("/api/post/:price", function(req, res) {
-  db.marketplacedb.findAll({
+  db.selectAllProducts({
     where: {
       price: req.params.price
     }
-  }).then(function(dbmarketplacedb) {
-    res.json(dbmarketplacedb);
   });
 })
 
 // search bar (search by title)
 app.get("/api/post/:title", function(req, res) {
-  db.marketplacedb.findAll({
+  db.selectAllProducts({
     where: {
       title: req.params.title
     }
-  }).then(function(dbmarketplacedb) {
-    res.json(dbmarketplacedb);
   });
-})
+});
+
+////////// USER INFORMATION \\\\\\\\\\
+
+
+// find and display user information
+app.get("/api/user/:id", function(req, res) {
+  db.selectAllUser({
+    where: {
+      userid: req.params.id
+    }
+  });
+});
+
+// POST route for a new user
+app.post("/api/posts/createUser", function(req, res) {
+  console.log(req.body);
+  db.insertUserUser({
+    firstName: req.params.firstName,
+    lastName: req.params.lastName,
+    email: req.params.email,
+    password: req.params.password,
+    userID: req.params.userID
+  })
+});
+
+// update user information 
+app.get("/api/user/:id", function(req, res) {
+  db.updateUserUsert({
+    where: {
+      userid: req.params.id
+    }
+  });
+});
+
+ // Delete account by user id 
+app.delete("/api/user/:id", function(req, res) {
+  db.deleteUserUser(
+    { 
+    where: { 
+      id: req.params.id 
+    } 
+  });
+});
+
+module.exports = app;
+
+

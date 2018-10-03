@@ -1,33 +1,34 @@
 var orm = require('../config/orm.js');
 
-var user = {
+var data = {
   selectAllUser: function(cb) {
     orm.selectAll("user", function(res) {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
-  insertUserUser: function(firstName, lastName, email, password, cb) {
-    orm.insertUser("user", firstName, lastName, email, password, cb, function(res) {
+  insertUserUser: function(firstName, lastName, email, cb) {
+    orm.insertUser("user", firstName, lastName, email, cb, function(res) {
       cb(res);
     });
   },
-  updateUserUser: function(firstName, lastName, email, password, userID, cb) {
+  updateUserUser: function(firstName, lastName, email, userID, cb) {
     orm.updateUser("user",firstName, lastName, email, password, userID, cb, function(res) {
       cb(res);
     });
-  }
-};
-
-var products = {
-  selectAllProducts: function(cb) {
-    orm.all("products", function(res) {
+  },
+  deleteUserUser: function(firstName, lastName, email, userID, cb) {
+    orm.deleteUser("user", firstName, lastName, email, userID, function(res){
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
+
+  selectAllProducts: function(cb) {
+    orm.selectAll("products", function(res) {
+      cb(res);
+    });
+  },
   insertProductsProducts: function(imageURL, title, description, category, price, userID, cb) {
-    orm.insertProducts("products", imageURL, title, description, category, price, userID, cb, function(res) {
+    orm.insertProduct("products", imageURL, title, description, category, price, userID, function(res) {
       cb(res);
     });
   },
@@ -35,8 +36,13 @@ var products = {
     orm.updateProducts("products",imageURL, title, description, category, price, userID, cb, function(res) {
       cb(res);
     });
-  }
-  
-}
-module.exports = user;
-module.exports = products; 
+  },
+  deleteProductProduct: function(imageURL, title, description, category, price, userID, cb) {
+    orm.deleteProduct("products", imageURL, title, description, category, price, userID, function(res){
+      cb(res);
+    });
+  },
+};
+
+module.exports = data;
+ 
