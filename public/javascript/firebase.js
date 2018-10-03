@@ -15,9 +15,9 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // user is signed in.
- console.log("user!")
-    displayNav(true);
+     displayNav(true);
   } else {
+    // No user is signed in.
     displayNav(false);
   }
 });
@@ -48,31 +48,34 @@ $(document).ready(function() {
 
   // SIGN UP  LISTENER
   $(document).on('click', '#enter', function() {
+
+    //Cleaning up response from forms
     email = $('#emailAddress')
       .val()
       .trim();
     pwd = $('#password')
       .val()
       .trim();
+    firstName = $('#firstName')
+    .val()
+    .trim();
+    lastName = $('#lastName')
+    .val()
+    .trim();
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, pwd)
       .then(function() {
-
-            // Constructing an Account object to hand to the database
+      // Constructing an Account object to hand to the database
       var account = {
         email: email,
-        fName: $('#firstName')
-        .val()
-        .trim(),
-        lName: $('#lastName')
-        .val()
-        .trim()
+        firstName: firstName,
+        lastName: lastName
     };
         // AJAX CALL TO UPDATE db
         $.ajax({
-          method: "PUT",
-          url: "/api/createAccount",
+          method: "POST",
+          url: "/api/posts/createUser",
           data: account
         })
           .then(function() {
