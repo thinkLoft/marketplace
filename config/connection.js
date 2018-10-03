@@ -1,10 +1,11 @@
-var mysql = require('mysql');
+var mysql = require('mysql2');
 var connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'password',
-  database: 'marketplacedb'
-})
+  database: 'marketplacedb',
+  port: 8000
+});
 
 connection.connect(function (err) {
   if (err) {
