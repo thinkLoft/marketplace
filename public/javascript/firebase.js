@@ -15,9 +15,11 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // user is signed in.
+    console.log("user!")
      displayNav(true);
   } else {
     // No user is signed in.
+    console.log("no user!")
     displayNav(false);
   }
 });
@@ -31,7 +33,7 @@ function displayNav(x) {
   if (x === true) {
     // User who is signed in
     html =
-      '<a href="/" class="item">Home</a><a href="MyAds.html" class="item">My Ads</a><a href="/postAd" class="item">Post An Ad</a><a href="/login" class="item">Logout</a>';
+      '<a href="/" class="item">Home</a><a href="MyAds.html" class="item">My Ads</a><a href="/postAd" class="item">Post An Ad</a><a id="logout" href="#" class="item">Logout</a>';
   } else {
     // No User
     html =
@@ -92,76 +94,54 @@ $(document).ready(function() {
       });
   });
 
-  // ================================
-  // =========PostAd function========
-  // ================================
+// LOGOUT LISTENER
+$(document).on('click', '#logout', function() {
+  firebase
+    .auth()
+    .signOut()
+    .then(function() {
+      // Sign-out successful.
+      alert("Sign-out Successful")
+      })
+    .catch(function(error) {
+      // An error happened.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      console.log(errorCode);
+      alert(errorMessage);
+    });
+});
 
-  $('#submitAd').on('click', function() {
-    event.preventDefault();
-    postAd(sessionUser.email);
-  });
+ // LOGIN LISTENER
+ $(document).on('click', '#lgnn', function(event) {
+  event.preventDefault();
+  email = $('#emailAddressL')
+    .val()
+    .trim();
+  pwd = $('#passwordL')
+    .val()
+    .trim();
 
-  function postAd(currentUser) {
-    var userID = currentUser;
-    var dbRef = db.ref('ads');
-    var title = $('#title')
-      .val()
-      .trim();
-    var description = $('#description')
-      .val()
-      .trim();
-    var price = $('#price')
-      .val()
-      .trim();
-    var file = $('#image').get(0).files[0];
-    var imgName = $('#image')
-      .val()
-      .trim();
-
-    if (
-      userID.length > 0 &&
-      title.length > 0 &&
-      imgName.length > 0 &&
-      description.length > 0 &&
-      price.length > 0
-    ) {
-      var adID = dbRef.push().key;
-      var fileName = file.name;
-      var imgPath = '/images/' + adID + '/' + fileName;
-      var sRef = store.ref(imgPath);
-
-      sRef
-        .put(file)
-        .then(function() {
-          console.log('Image upload successful');
-          return sRef.getDownloadURL();
-        })
-        .then(function(imageURL) {
-          console.log('url:' + imageURL);
-          console.log('Download URL acquired successfully');
-
-          var ad = {
-            userID: userID,
-            title: title,
-            imageURL: imageURL,
-            storagePath: imgPath,
-            description: description,
-            price: price,
-            dateAdded: firebase.database.ServerValue.TIMESTAMP
-          };
-
-          var adRef = dbRef.child(adID);
-          adRef.update(ad);
-        })
-        .then(function() {
-          console.log('Successfully saved to database.');
-          $('#postForm')[0].reset();
-        })
-        .catch(function(error) {
-          console.log('Error:' + error);
-        });
-    }
-  }
-
+  // LOGIN FUNCTION
+  firebase
+    .auth()
+    .signInWithEmailAndPassword(email, pwd)
+    .then(function() {
+      // Sign-in successful.
+      alert("Sign-in successful");
+      window.location.href = "/";
+    })
+    .catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // [START_EXCLUDE]
+      if (errorCode === 'auth/wrong-password') {
+        alert('Wrong password.');
+      } else {
+        alert(errorMessage);
+      }
+    });
+});
   // bottom of on document ready
 });
