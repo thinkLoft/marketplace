@@ -5,7 +5,7 @@ var connection = mysql.createConnection({
   password: 'password',
   database: 'marketplacedb',
   port: 8000
-});
+})
 
 connection.connect(function (err) {
   if (err) {

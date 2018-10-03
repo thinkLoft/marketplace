@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 require('dotenv').config();
 
+
 //npm package method overide added 
 var methodOverride = require('method-override');
 
@@ -23,7 +24,7 @@ app.use(bodyParser.json());
 app.use(methodOverride('_method'));
 
 require('./routes/htmlRoutes')(app);
-// require('./routes/apiRoutes')(app);
+require('./routes/apiRoutes')(app);
 
 // Starts the server to begin listening
 app.listen(PORT, function () {
