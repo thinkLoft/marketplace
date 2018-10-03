@@ -1,5 +1,4 @@
 var connection = require("./connection.js");
-var firebase = require("./firebase.js");
 
 var orm = {
   selectAll: function(tableInput, cb) {
