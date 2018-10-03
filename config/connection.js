@@ -1,15 +1,15 @@
-var mysql = require('mysql');
+var mysql = require("mysql");
 var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'marketplacedb',
-  port: 8000
-})
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "marketplacedb",
+  port: 3306
+});
 
-connection.connect(function (err) {
+connection.connect(function(err) {
   if (err) {
-    console.log(err)
+    console.log(err);
     throw err;
   }
   console.log("connected as id: " + connection.threadId);

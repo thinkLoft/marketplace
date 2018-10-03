@@ -1,18 +1,16 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-require('dotenv').config();
+require("dotenv").config();
 
-
-//npm package method overide added 
-var methodOverride = require('method-override');
+//npm package method overide added
+// var methodOverride = require("method-override");
 
 //var db = require("./models");
 
 var PORT = process.env.PORT || 3000;
 var app = express();
 
-
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + "/public"));
 
 app.use(
   bodyParser.urlencoded({
@@ -21,20 +19,21 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.use(methodOverride('_method'));
+// app.use(methodOverride("_method"));
 
-require('./routes/htmlRoutes')(app);
-require('./routes/apiRoutes')(app);
+// require("./routes/htmlRoutes")(app);
+// require("./routes/apiRoutes")(app);
+
+// Import routes and give the server access to them.
+var routes = require("./routes/apiRoutes");
+// var routes = require("./routes/htmlRoutes");
+
+app.use(routes);
 
 // Starts the server to begin listening
-app.listen(PORT, function () {
+app.listen(PORT, function() {
   console.log("App listening on PORT: " + PORT);
 });
-
-
-
-
-
 
 // // Middleware
 // app.use(bodyParser.urlencoded({
