@@ -1,21 +1,21 @@
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyBgumuOwqrl-8Pz1-DSmqFmZpzyg_nnSpk",
-    authDomain: "marketplace-942ee.firebaseapp.com",
-    databaseURL: "https://marketplace-942ee.firebaseio.com",
-    projectId: "marketplace-942ee",
-    storageBucket: "marketplace-942ee.appspot.com",
-    messagingSenderId: "33639365467"
-  };
-  firebase.initializeApp(config);
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyBgumuOwqrl-8Pz1-DSmqFmZpzyg_nnSpk",
+  authDomain: "marketplace-942ee.firebaseapp.com",
+  databaseURL: "https://marketplace-942ee.firebaseio.com",
+  projectId: "marketplace-942ee",
+  storageBucket: "marketplace-942ee.appspot.com",
+  messagingSenderId: "33639365467"
+};
+firebase.initializeApp(config);
 
 
 // REAL-TIME LISTENER
-firebase.auth().onAuthStateChanged(function(user) {
+firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // user is signed in.
- console.log("user!")
+    console.log("user!")
     displayNav(true);
   } else {
     displayNav(false);
