@@ -5,49 +5,49 @@ USE marketplacedb;
 
 CREATE TABLE user
 (
-  userID MEDIUMINT
-  AUTO_INCREMENT NOT NULL,
+    userID MEDIUMINT
+    AUTO_INCREMENT NOT NULL,
 firstName VARCHAR
-  (255) NOT NULL,
+    (255) NOT NULL,
 lastName VARCHAR
-  (255) NOT NULL, 
+    (255) NOT NULL, 
 email VARCHAR
-  (255) NOT NULL,
+    (255) NOT NULL,
 password VARCHAR
-  (100) NOT NULL,
+    (100) NOT NULL,
 primary key
-  (userID)
+    (userID)
 );
 
-  select *
-  from user;
+    select *
+    from user;
 
-  CREATE TABLE products
-  (
-    id MEDIUMINT
-    AUTO_INCREMENT NOT NULL,
+    CREATE TABLE products
+    (
+        id MEDIUMINT
+        AUTO_INCREMENT NOT NULL,
 image VARCHAR
-    (2000) NOT NULL,
+        (2000) NOT NULL,
 title VARCHAR
-    (100) NOT NULL, 
+        (100) NOT NULL, 
 description VARCHAR
-    (255) NOT NULL,
+        (255) NOT NULL,
 category VARCHAR
-    (100) NOT NULL,
+        (100) NOT NULL,
 price DECIMAL
-    (10,2) NOT NULL,
+        (10,2) NOT NULL,
 userID MEDIUMINT NOT NULL,
 sold boolean DEFAULT FALSE,
 primary key
-    (id),
+        (id),
 constraint fk_userID foreign key
-    (userID)
+        (userID)
 references user
-    (userID)
+        (userID)
 on
-    delete cascade on
-    update cascade);
+        delete cascade on
+        update cascade);
 
 
-    select *
-    from products;
+        select *
+        from products;
