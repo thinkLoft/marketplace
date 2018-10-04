@@ -36,7 +36,7 @@ app.delete("/api/posts/:id", function(req, res) {
 
 // update ad created by unique user 
 app.put("/api/post/:id", function (req, res) {
-  db.updateUserUser(req.body, 
+  db.updateProductsProducts(req.body, 
     {
     where: {
       id: req.params.id
@@ -86,7 +86,7 @@ app.get("/api/user/:id", function(req, res) {
 });
 
 // POST route for a new user
-app.post("/api/posts/createUser", function(req, res) {
+app.post("/api/user/createUser", function(req, res) {
   console.log(req.body);
   db.insertUserUser({
     firstName: req.params.firstName,
@@ -98,7 +98,7 @@ app.post("/api/posts/createUser", function(req, res) {
 });
 
 // update user information 
-app.get("/api/user/:id", function(req, res) {
+app.put("/api/user/:id", function(req, res) {
   db.updateUserUsert({
     where: {
       userid: req.params.id

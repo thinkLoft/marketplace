@@ -8,7 +8,7 @@ require('dotenv').config();
 var PORT = process.env.PORT || 3000;
 var app = express();
 
-app.use(express.static(__dirname + 'public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use(
   bodyParser.urlencoded({
@@ -19,10 +19,11 @@ app.use(bodyParser.json());
 
 // app.use(methodOverride('_method'));
 
-var apiRoutes = require("./routes/apiRoutes.js");
+require("./routes/htmlRoutes")(app);
+var routes = require("./routes/apiRoutes.js");
 // var htmlRoutes = require("./routes/htmlRoutes.js");
-app.use(apiRoutes);
-// app.use(htmlRoutes);
+// app.use(apiRoutes);
+app.use(routes);
 
 // Starts the server to begin listening
 app.listen(PORT, function () {
@@ -77,4 +78,4 @@ app.listen(PORT, function () {
 // //   });
 // // });
 
-// module.exports = app;
+module.exports = app;
