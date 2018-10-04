@@ -5,7 +5,7 @@ require("dotenv").config();
 var PORT = process.env.PORT || 3000;
 var app = express();
 
-app.use(express.static(__dirname + "public"));
+app.use(express.static(__dirname + "/public"));
 
 app.use(
   bodyParser.urlencoded({
@@ -14,11 +14,10 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 // Import routes and give the server access to them.
 var routes = require("./routes/apiRoutes.js");
-// var routes = require("./routes/htmlRoutes");
 
 app.use(routes);
 
