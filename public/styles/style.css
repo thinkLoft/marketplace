@@ -82,7 +82,7 @@ opacity: 0.7;
   text-align: center;
 }
 
-#enter, #return{
+#lgnn,#return,#logout,#enter{
   background-color:blanchedalmond;
   font-family: 'Charmonman', cursive;
   color:black;
@@ -224,7 +224,37 @@ th{
 
 /* individualAds page */
 
+#individualAdsBody{
+  margin:0 auto;
+  background-image: url("assets/images/individualAd.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
 
+.card-img-top{
+  height:300px;
+}
+
+#adImage{
+  float:left;
+  position: relative;
+}
+
+#adCard{
+  padding:50px;
+}
+
+#adDescription{
+  text-align: left;
+  width:250px;
+}
+
+.card-link{
+  font-family: 'Charmonman', cursive;
+  color:black;
+  font-weight: 600;
+  font-size:20px;
+}
 
 /* footer */
 footer {
