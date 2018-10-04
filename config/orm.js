@@ -152,6 +152,7 @@ var orm = {
     });
   },
 
+  // Update User Profile query
   updateUser: function(
     tableInput,
     firstName,
