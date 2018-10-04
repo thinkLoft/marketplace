@@ -74,7 +74,7 @@ var orm = {
     image,
     price,
     title,
-    catergory,
+    category,
     description,
     cb
   ) {
@@ -86,7 +86,7 @@ var orm = {
     queryString += image.toString();
     queryString += price.toString();
     queryString += title.toString();
-    queryString += catergory.toString();
+    queryString += category.toString();
     queryString += description.toString();
     queryString += ") ";
     queryString += "VALUES (";
@@ -126,7 +126,7 @@ var orm = {
     image,
     price,
     title,
-    catergory,
+    category,
     description,
     id,
     cb
@@ -137,7 +137,7 @@ var orm = {
     queryString += objToSql(image);
     queryString += objToSql(price);
     queryString += objToSql(title);
-    queryString += objToSql(catergory);
+    queryString += objToSql(category);
     queryString += objToSql(description);
     queryString += " WHERE id=";
     queryString += id;
