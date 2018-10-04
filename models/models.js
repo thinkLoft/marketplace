@@ -30,7 +30,7 @@ var data = {
   },
 
   selectAllProducts: function(cb) {
-    orm.all("products", function(res) {
+    orm.selectAll("products", function(res) {
       cb(res);
     });
   },

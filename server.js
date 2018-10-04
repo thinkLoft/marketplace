@@ -2,11 +2,6 @@ var express = require("express");
 var bodyParser = require("body-parser");
 require("dotenv").config();
 
-//npm package method overide added
-// var methodOverride = require("method-override");
-
-//var db = require("./models");
-
 var PORT = process.env.PORT || 3000;
 var app = express();
 
@@ -19,14 +14,11 @@ app.use(
 );
 app.use(bodyParser.json());
 
-// app.use(methodOverride("_method"));
-
-// require("./routes/htmlRoutes")(app);
 // require("./routes/apiRoutes")(app);
 
 // Import routes and give the server access to them.
-var routes = require("./routes/apiRoutes");
-// var routes = require("./routes/htmlRoutes");
+var routes = require("./routes/apiRoutes.js");
+var routes = require("./routes/htmlRoutes");
 
 app.use(routes);
 
@@ -82,4 +74,4 @@ app.listen(PORT, function() {
 // //   });
 // // });
 
-module.exports = app;
+// module.exports = app;
