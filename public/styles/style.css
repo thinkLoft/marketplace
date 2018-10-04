@@ -1,4 +1,4 @@
-body {
+#createAccountBody, #loginBody {
   font-family: 'Slabo 27px', serif;
   font-family: 'Source Serif Pro', serif;
   height: 100%;
@@ -9,10 +9,23 @@ html {
 
 /* Navbar */
 .navbar-brand{
-  margin-top: 15px;
   font-family: 'Charmonman', cursive;
   font-size: 40px;
   margin-left:150px;
+  margin-top: 20px;
+}
+
+.item{
+  font-family: 'Charmonman', cursive;
+  color: black;
+  padding: 20px;
+  font-weight: 550;
+  font-size: 20px;
+}
+
+#nav{
+  float:right;
+  margin-top:45px;
 }
 
 header {
@@ -33,13 +46,13 @@ h2 {
 
 /* login page */
 
-#loginBody{
+#loginBody, #createAccountBody, #postAdBody{
   background-color: rgb(212,205,196);
 }
 #loginHead{
   text-align: center;
   font-family: 'Charmonman', cursive;
-  size:35px;
+  font-size:35px;
   font-weight: 500;
 }
 
@@ -82,10 +95,10 @@ opacity: 0.7;
   height:100%;
   width: 500px;
   position:relative;
-margin:0 auto;
-background-image: url("assets/images/createAccount.jpg");
-background-repeat: no-repeat;
-background-size:cover;
+  margin:0 auto;
+  background-image: url("assets/images/createAccount.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
 }
 
 
@@ -102,12 +115,117 @@ background-size:cover;
 #signUpHead{
   text-align: center;
   font-family: 'Charmonman', cursive;
-  size:35px;
+  font-size:35px;
   font-weight: 500;
   color:white;
   background-color: rgb(131,62,61);
   opacity: 0.9;
 }
+
+/* postAd page */
+
+#postAdPage{
+  width: 650px;
+  position:relative;
+  margin:0 auto;
+  background-image: url("assets/images/postAd.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+  padding: 35px;
+}
+
+#postAdHead{
+  text-align: center;
+  font-family: 'Charmonman', cursive;
+  font-size:35px;
+  font-weight: 600;
+  color:black;
+}
+
+#date, #firstNameP, #lastNameP, #image, #price, #descriptionP, #titleP,#categoryP{
+  font-family: 'Charmonman', cursive;
+  font-size:20px;
+  font-weight: 500;
+  color:black;
+}
+
+#description{
+  height: 100px;
+}
+
+#postAd{
+  background-color: white;
+  opacity: 0.8;
+  padding:15px;
+}
+
+#postAdFooter {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-color: rgb(131,62,61);
+  font-family: 'Charmonman', cursive;
+  color: white;
+  font-size: 15px;
+  text-align: center;
+}
+
+/* feedback page */
+#feedbackHead{
+  text-align: center;
+  font-family: 'Charmonman', cursive;
+  font-size:35px;
+  color:black;
+}
+
+th{
+  text-align: center;
+  font-family: 'Charmonman', cursive;
+  font-size:25px;
+  color:black;
+}
+
+#datePostedP,#firstNameP,#lastNameP,#feedbackP{
+  font-family: 'Charmonman', cursive;
+  font-size:20px;
+  color:black;
+}
+
+#feedback{
+  height: 100px;
+}
+
+#feedbackTable{
+  width:725px;
+  float:left;
+  position:absolute;
+}
+
+#opinions{
+  width: 575px;
+  float:right;
+  background-color:white;
+  padding:15px;
+  opacity: 0.9;
+}
+
+#main{
+  padding: 20px;
+}
+
+#feedbackBody{
+  margin:0 auto;
+  background-image: url("assets/images/feedback.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+/* individualAds page */
+
+
+
 /* footer */
 footer {
   position: absolute;

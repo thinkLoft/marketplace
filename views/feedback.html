@@ -14,7 +14,7 @@
 
 </head>
 
-<body>
+<body id="feedbackBody">
 
   <header>
     <a class="navbar-brand">Marketplace</a>
@@ -22,27 +22,56 @@
       <!-- Nav will get filled in here-->
     </div>
   </header>
+  <div id="main">
+    <!-- container for feedback table -->
 
-  <div id="feedbackPage" class="container">
-    <form>
+    <table id="feedbackTable" class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Date</th>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Comments</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- feedback to be filled in here -->
+      </tbody>
+    </table>
+
+
+    <!-- container for form -->
+
+
+    <form id="opinions">
+      <h1 id="feedbackHead">Have your say</h1>
+      <br>
       <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="datePostedP">Date Posted</label>
-          <input type="date" class="form-control" id="datePostedP" placeholder="Today's Date">
+        <div class="form-group col-md-4">
+          <label id="datePostedP" for="datePosted">Date Posted</label>
+          <input type="date" class="form-control" id="datePosted" placeholder="Today's Date">
         </div>
-        <div class="form-group col-md-6">
-          <label for="userNameP">Username</label>
-          <input type="text" class="form-control" id="userNameP" placeholder="Username">
+        <div class="form-group col-md-4">
+          <label id="datePostedP" for="firstNameP">First Name</label>
+          <input type="text" class="form-control" id="firstNameP">
+        </div>
+        <div class="form-group col-md-4">
+          <label id="lastNameP" for="lastNameP">Last Name</label>
+          <input type="text" class="form-control" id="lastNameP">
         </div>
       </div>
 
       <div class="form-group">
-        <label for="feedback">How was your experience using Marketplace?</label>
+        <label id="feedbackP" for="feedback">How was your experience using Marketplace?</label>
         <input type="text" maxlength="500" class="form-control" id="feedback">
       </div>
 
-      <button type="submit" class="btn btn-primary">Post</button>
+      <div id="loginButton">
+        <button id="enter" type="submit" class="btn btn-primary">Share</button>
+
+      </div>
     </form>
+
   </div>
 
   <footer class="footer">
