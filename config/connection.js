@@ -4,10 +4,10 @@ var connection = mysql.createConnection({
   user: "root",
   password: "password",
   database: "marketplacedb",
-  port: 3306
+  port: 8000
 });
 
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) {
     console.log(err);
     throw err;
