@@ -9,10 +9,23 @@ html {
 
 /* Navbar */
 .navbar-brand{
-  margin-top: 15px;
   font-family: 'Charmonman', cursive;
   font-size: 40px;
   margin-left:150px;
+  margin-top: 20px;
+}
+
+.item{
+  font-family: 'Charmonman', cursive;
+  color: black;
+  padding: 20px;
+  font-weight: 550;
+  font-size: 20px;
+}
+
+#nav{
+  float:right;
+  margin-top:45px;
 }
 
 header {
@@ -208,6 +221,11 @@ th{
   background-repeat: no-repeat;
   background-size:cover;
 }
+
+/* individualAds page */
+
+
+
 /* footer */
 footer {
   position: absolute;

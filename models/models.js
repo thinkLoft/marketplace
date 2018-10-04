@@ -6,7 +6,7 @@ var data = {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
+
   insertUserUser: function(firstName, lastName, email, password, cb) {
     orm.insertUser("user", firstName, lastName, email, password, cb, function(
       res
@@ -14,6 +14,7 @@ var data = {
       cb(res);
     });
   },
+
   updateUserUser: function(firstName, lastName, email, password, userID, cb) {
     orm.updateUser(
       "user",
@@ -34,7 +35,7 @@ var data = {
       cb(res);
     });
   },
-  // The variables cols and vals are arrays.
+
   insertProductsProducts: function(
     imageURL,
     title,
@@ -58,6 +59,7 @@ var data = {
       }
     );
   },
+
   updateProductsProducts: function(
     imageURL,
     title,
@@ -84,4 +86,3 @@ var data = {
 };
 
 module.exports = data;
-// module.exports = products;

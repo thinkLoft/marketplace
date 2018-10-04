@@ -9,7 +9,6 @@ function printQuestionMarks(num) {
   for (var i = 0; i < num; i++) {
     arr.push("?");
   }
-
   return arr.toString();
 }
 
@@ -30,7 +29,6 @@ function objToSql(ob) {
       arr.push(key + "=" + value);
     }
   }
-
   // translate array of strings to a single comma-separated string
   return arr.toString();
 }
@@ -65,7 +63,6 @@ var orm = {
       if (err) {
         throw err;
       }
-
       cb(result);
     });
   },
@@ -102,26 +99,10 @@ var orm = {
       if (err) {
         throw err;
       }
-
       cb(result);
     });
   },
 
-  // updateSold: function(tableInput, condition, cb) {
-  //   connection.query(
-  //     "update " +
-  //       tableInput +
-  //       " " +
-  //       "set sold=true where id=" +
-  //       condition +
-  //       " ;",
-  //     function(err, result) {
-  //       // if (err) throw err;
-  //       console.log("[mysql error]", err);
-  //       cb(result);
-  //     }
-  //   );
-  // },
   updateSold: function(tableInput, objColVals, condition, cb) {
     var queryString = "UPDATE " + tableInput;
 
@@ -136,7 +117,6 @@ var orm = {
       if (err) {
         throw err;
       }
-
       cb(result);
     });
   },
@@ -168,12 +148,9 @@ var orm = {
       if (err) {
         throw err;
       }
-
       cb(result);
     });
   },
-
-  // --------------------------
 
   updateUser: function(
     tableInput,
@@ -184,59 +161,58 @@ var orm = {
     userID,
     cb
   ) {
-    connection.query(
-      "update " +
-        tableInput +
-        " " +
-        "set firstName = " +
-        '"' +
-        firstName +
-        '"' +
-        ", lastName = " +
-        '"' +
-        lastName +
-        '"' +
-        ", email = " +
-        '"' +
-        email +
-        '"' +
-        ", password = " +
-        '"' +
-        password +
-        '"' +
-        " where userID= " +
-        userID +
-        ";",
-      function(err, result) {
-        // if (err) throw err;
-        console.log("[mysql error]", err);
-        cb(result);
+    var queryString = "UPDATE " + tableInput;
+
+    queryString += " SET ";
+    queryString += objToSql(firstName);
+    queryString += objToSql(lastName);
+    queryString += objToSql(email);
+    queryString += objToSql(password);
+    queryString += " WHERE userID=";
+    queryString += userID;
+    queryString += " ; ";
+
+    console.log(queryString);
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
       }
-    );
+      cb(result);
+    });
   },
 
   // delete products query
   deleteProduct: function(tableInput, id, cb) {
-    connection.query(
-      "delete " + "from " + tableInput + "where id = " + id + ";",
-      function(err, result) {
-        // if (err) throw err;
-        console.log("[mysql error]", err);
-        cb(result);
+    var queryString = "DELETE FROM " + tableInput;
+
+    queryString += " WHERE id=";
+    queryString += id;
+    queryString += " ; ";
+
+    console.log(queryString);
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
       }
-    );
+      cb(result);
+    });
   },
 
   // delete user query
   deleteUser: function(tableInput, userID, cb) {
-    connection.query(
-      "delete " + "from " + tableInput + "where userID = " + userID + ";",
-      function(err, result) {
-        // if (err) throw err;
-        console.log("[mysql error]", err);
-        cb(result);
+    var queryString = "DELETE FROM " + tableInput;
+
+    queryString += " WHERE userID=";
+    queryString += userID;
+    queryString += " ; ";
+
+    console.log(queryString);
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
       }
-    );
+      cb(result);
+    });
   }
 };
 

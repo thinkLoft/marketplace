@@ -1,4 +1,4 @@
-var db = require("../models/models");
+// var db = require("../models/models");
 var path = require("path");
 
 module.exports = function(app) {
