@@ -12,11 +12,11 @@ html {
   text-align: right;
 }
 
-#homepageTitle{
+.title{
   font-weight:500;
   font-size: 20px;
 }
-#homepagePrice{
+.price{
   font-weight: 600;
   font-size: 25px;
 }
