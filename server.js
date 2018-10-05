@@ -14,12 +14,9 @@ app.use(
 );
 app.use(bodyParser.json());
 
-require("./routes/htmlRoutes")(app);
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes.js")(app);
 
-// Import routes and give the server access to them.
-var routes = require("./routes/apiRoutes.js");
-
-app.use(routes);
 
 // Starts the server to begin listening
 app.listen(PORT, function() {

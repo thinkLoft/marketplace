@@ -1,13 +1,13 @@
 var db = require("../models/models");
-var express = require("express");
-var app = express.Router();
+
+module.exports = function(app) {
 
 /////////// POST INFORMATION \\\\\\\\\
 
 // Get all posts
 app.get("/api/posts/", function(req, res) {
   db.selectAllProducts(function(data) {
-    console.log(JSON.stringify(data));
+    res.json(data);
   });
 });
 
@@ -116,6 +116,6 @@ app.delete("/api/user/:id", function(req, res) {
   });
 });
 
-module.exports = app;
+}
 
 
