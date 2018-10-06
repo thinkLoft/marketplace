@@ -7,6 +7,19 @@ html {
   height: 100%;
 }
 
+/* index page */
+#indexImage{
+  text-align: right;
+}
+
+.title{
+  font-weight:500;
+  font-size: 20px;
+}
+.price{
+  font-weight: 600;
+  font-size: 25px;
+}
 /* Navbar */
 .navbar-brand{
   font-family: 'Charmonman', cursive;
@@ -46,6 +59,7 @@ h2 {
 
 /* login page */
 
+
 #loginBody, #createAccountBody, #postAdBody{
   background-color: rgb(212,205,196);
 }
@@ -82,7 +96,7 @@ opacity: 0.7;
   text-align: center;
 }
 
-#enter, #return{
+#lgnn,#return,#logout,#enter,#back{
   background-color:blanchedalmond;
   font-family: 'Charmonman', cursive;
   color:black;
@@ -183,7 +197,7 @@ opacity: 0.7;
 th{
   text-align: center;
   font-family: 'Charmonman', cursive;
-  font-size:25px;
+  font-size:20px;
   color:black;
 }
 
@@ -224,11 +238,41 @@ th{
 
 /* individualAds page */
 
+#individualAdsBody{
+  margin:0 auto;
+  background-image: url("assets/images/individualAd.jpg");
+  background-repeat: no-repeat;
+  background-size:cover;
+}
 
+.card-img-top{
+  height:300px;
+}
+
+#adImage{
+  float:left;
+  position: relative;
+}
+
+#adCard{
+  padding:50px;
+}
+
+#adDescription{
+  text-align: left;
+  width:250px;
+}
+
+.card-link{
+  font-family: 'Charmonman', cursive;
+  color:black;
+  font-weight: 600;
+  font-size:20px;
+}
 
 /* footer */
 footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 60px;
