@@ -26,4 +26,66 @@ $(document).ready(function() {
 
       getPosts();
 
+    function categoryFilter () {
+        // filter posts by category
+        $.ajax("/api/posts/" + category, {
+            type: "GET",
+            data: selectAllProducts
+         }).then(function() {
+            console.log("Category successfully displayed");
+            location.reload();
+        }); 
+    }
+    categoryFilter();
+    $('#categoryfilter').click(function(){
+        categoryFilter();
 });
+
+$('form').submit(function(e){
+        e.preventDefault();
+        categoryFilter();
+});
+     
+    function priceFilter () {
+   // filter posts by price 
+        $.ajax("/api/post/" + price, {
+            type: "GET",
+            data: selectAllProducts
+    }).then(function() {
+        console.log("filter by price successful");
+        location.reload();
+        }); 
+    }
+    priceFilter();
+    $('#pricefilter').click(function(){
+        priceFilter();
+});
+
+$('form').submit(function(e){
+        e.preventDefault();
+        priceFilter();
+});
+
+    function titleFilter () {
+    // filter posts by title 
+        $.ajax("/api/post/" + title, {
+            type: "GET",
+            data: selectAllProducts
+    }).then(function() {
+        console.log("filter by title successful");
+        location.reload();
+    });
+}
+    titleFilter(); //search filter 
+    $('#search').click(function(){
+        titleFilter();
+});
+
+$('form').submit(function(e){
+        e.preventDefault();
+        titleFilter();
+});
+
+}); 
+
+
