@@ -2,15 +2,15 @@ var db = require("../models/models");
 var connection = require("../config/connection.js");
 
 module.exports = function(app) {
+  /////////// POST INFORMATION \\\\\\\\\
 
-/////////// POST INFORMATION \\\\\\\\\
-
-// Get all posts
-app.get("/api/posts/", function(req, res) {
-  db.selectAllProducts(function(data) {
-    res.json(data);
+  // Get all posts
+  app.get("/api/posts/", function(req, res) {
+    db.selectAllProducts(function(data) {
+      res.json(data);
+    });
   });
-});
+
 
   // GET individual post
   app.get("/api/posts/:id", function(req, res) {
@@ -49,93 +49,91 @@ app.delete("/api/posts/:id", function(req, res) {
     { 
     where: { 
       id: req.params.id 
-    } 
+      } 
+    })
   });
-});
 
-
-// update ad created by unique user 
-app.put("/api/post/:id", function (req, res) {
-  db.updateProductsProducts(req.body, 
-    {
-    where: {
-      id: req.params.id
-    }
-  })
-})
-
-/////// FILTER and SEARCH BAR \\\\\\\\\\
-
-// filter based on category 
-app.get("/api/posts/:category", function(req, res) {
-  db.selectAllProducts({
-    where: {
-      category: req.params.category
-    }
+  // POST route for saving a new post
+  app.post("/api/posts/createPost", function(req, res) {
+    console.log(req.body);
   });
-});
 
-// filter based on price 
-app.get("/api/post/:price", function(req, res) {
-  db.selectAllProducts({
-    where: {
-      price: req.params.price
-    }
+  // update ad created by unique user
+  app.put("/api/post/:id", function(req, res) {
+    db.updateProductsProducts(req.body, {
+      where: {
+        id: req.params.id
+      }
+    });
   });
-})
 
-// search bar (search by title)
-app.get("/api/post/:title", function(req, res) {
-  db.selectAllProducts({
-    where: {
-      title: req.params.title
-    }
+  // Delete a post by id (must be user that creates ad)
+  app.delete("/api/posts/:id", function(req, res) {
+    db.deleteProductProduct({
+      where: {
+        id: req.params.id
+      }
+    });
   });
-});
 
-////////// USER INFORMATION \\\\\\\\\\
+  /////// FILTER and SEARCH BAR \\\\\\\\\\
 
-
-// find and display user information
-app.get("/api/user/:id", function(req, res) {
-  db.selectAllUser({
-    where: {
-      userid: req.params.id
-    }
+  // filter based on category
+  app.get("/api/posts/:category", function(req, res) {
+    db.selectAllProducts({
+      where: {
+        category: req.params.category
+      }
+    });
   });
-});
 
-// POST route for a new user
-app.post("/api/user/createUser", function(req, res) {
-  console.log(req.body);
-  db.insertUserUser({
-    firstName: req.params.firstName,
-    lastName: req.params.lastName,
-    email: req.params.email,
-    password: req.params.password,
-    userID: req.params.userID
-  })
-});
-
-// update user information 
-app.put("/api/user/:id", function(req, res) {
-  db.updateUserUsert({
-    where: {
-      userid: req.params.id
-    }
+  // filter based on price
+  app.get("/api/post/:price", function(req, res) {
+    db.selectAllProducts({
+      where: {
+        price: req.params.price
+      }
+    });
   });
-});
 
- // Delete account by user id 
-app.delete("/api/user/:id", function(req, res) {
-  db.deleteUserUser(
-    { 
-    where: { 
-      id: req.params.id 
-    } 
+  // search bar (search by title)
+  app.get("/api/post/:title", function(req, res) {
+    db.selectAllProducts({
+      where: {
+        title: req.params.title
+      }
+    });
   });
-});
 
-}
+  ////////// USER INFORMATION \\\\\\\\\\
+
+  // find and display user information
+  app.get("/api/user/:id", function(req, res) {
+    db.selectAllUser({
+      where: {
+        userid: req.params.id
+      }
+    });
+  });
+
+  // update user information
+  app.put("/api/user/:id", function(req, res) {
+    db.updateUserUsert({
+      where: {
+        userid: req.params.id
+      }
+    });
+  });
+
+  // Delete account by user id
+  app.delete("/api/user/:id", function(req, res) {
+    db.deleteUserUser({
+      where: {
+        id: req.params.id
+      }
+    });
+  });
+};
+
 
 
