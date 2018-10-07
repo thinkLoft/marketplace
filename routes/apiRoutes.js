@@ -1,4 +1,5 @@
 var db = require("../models/models");
+var connection = require("../config/connection.js");
 
 module.exports = function(app) {
 
@@ -10,6 +11,25 @@ app.get("/api/posts/", function(req, res) {
     res.json(data);
   });
 });
+
+  // GET individual post
+  app.get("/api/posts/:id", function(req, res) {
+    console.log(req.params.id);
+    
+    var adId = req.params.id
+
+    var queryString =
+      "SELECT * FROM products WHERE id=" + adId + ";";
+
+      connection.query(
+      queryString, function(err, result) {
+        if (err) throw err;
+        res.json(result)
+      }
+    );
+
+    
+  });
 
 // POST route for saving a new post
 app.post("/api/posts/createPost", function(req, res) {

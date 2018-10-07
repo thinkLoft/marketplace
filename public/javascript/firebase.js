@@ -9,11 +9,14 @@ var config = {
 };
 firebase.initializeApp(config);
 
+// Global Variabl
+var user;
+
 // REAL-TIME LISTENER
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // user is signed in.
-    console.log("user!");
+    user = firebase.auth().currentUser;
     displayNav(true);
   } else {
     // No user is signed in.
