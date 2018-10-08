@@ -156,7 +156,7 @@ opacity: 0.7;
   color:black;
 }
 
-#date, #firstNameP, #lastNameP, #image, #price, #descriptionP, #titleP,#categoryP{
+#date, #firstNameP, #lastNameP, #image, #price, #descriptionP, #titleP,#categoryP,#emailP{
   font-family: 'Charmonman', cursive;
   font-size:20px;
   font-weight: 500;
