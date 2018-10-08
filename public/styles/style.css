@@ -9,6 +9,7 @@ html {
 }
 
 /* index page */
+
 #indexImage {
   text-align: right;
 }
@@ -24,6 +25,14 @@ html {
 .price {
   font-weight: 600;
   font-size: 25px;
+}
+
+.main {
+  padding-bottom: 40px;
+}
+
+.information {
+  padding-left: 40px;
 }
 /* Navbar */
 .navbar-brand {
@@ -64,11 +73,28 @@ h2 {
 }
 
 /* login page */
+@keyframes example {
+  0% {
+    background-color: rgb(255, 235, 205);
+  }
+  25% {
+    background-color: rgb(212, 205, 196);
+  }
+  50% {
+    background-color: rgb(230, 166, 165);
+  }
+  100% {
+    background-color: rgb(216, 191, 155);
+  }
+}
 
 #loginBody,
 #createAccountBody,
 #postAdBody {
   background-color: rgb(212, 205, 196);
+  animation-name: example;
+  animation-duration: 15s;
+  animation-iteration-count: infinite;
 }
 #loginHead {
   text-align: center;
@@ -106,7 +132,6 @@ h2 {
 
 #lgnn,
 #return,
-#logout,
 #enter,
 #back {
   background-color: blanchedalmond;
