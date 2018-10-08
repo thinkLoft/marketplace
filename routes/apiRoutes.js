@@ -109,6 +109,22 @@ module.exports = function(app) {
     );
   });
 
+  // Get all posts by filter
+  app.get("/api/posts/category", urlencodedParser, function(req, res) {
+    // console.log(req.body);
+
+    if (!req.body) return res.sendStatus(400);
+
+    var queryString = "SELECT * FROM products WHERE category=?";
+
+    connection.query(queryString, [req.body.category], function(err, result) {
+      if (err) throw err;
+      console.log("Products Available!", result);
+      res.redirect("/categoryPage.html");
+      res.end();
+    });
+  });
+
   // update ad created by unique user
   // app.put("/api/post/:id", function(req, res) {
   //   db.updateProductsProducts(req.body, {
