@@ -38,7 +38,7 @@ $(document).ready(function() {
   }
 
   getPosts();
-
+/*
   function categoryFilter() {
     // filter posts by category
     $.ajax("/api/posts/" + category, {
@@ -98,4 +98,5 @@ $(document).ready(function() {
     e.preventDefault();
     titleFilter();
   });
+*/
 });

@@ -13,7 +13,7 @@ firebase.initializeApp(config);
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // user is signed in.
-    console.log("user!");
+    console.log("user!", firebase.auth().currentUser.email);
     displayNav(true);
   } else {
     // No user is signed in.

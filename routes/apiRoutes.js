@@ -80,7 +80,8 @@ module.exports = function(app) {
   });
 
   // POST route for updating a post by id
-  app.post("/api/posts/createPost/:id", urlencodedParser, function(req, res) {
+  // Below Updating POst code yet need some work after we finalize what is URL
+  app.post("/api/post/:id", urlencodedParser, function(req, res) {
     console.log(req.body);
 
     if (!req.body) return res.sendStatus(400);
