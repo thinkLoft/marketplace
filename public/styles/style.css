@@ -20,6 +20,10 @@ html {
   font-weight: 600;
   font-size: 25px;
 }
+
+.main{
+  padding-bottom: 25px;
+}
 /* Navbar */
 .navbar-brand{
   font-family: 'Charmonman', cursive;
