@@ -97,9 +97,9 @@ module.exports = function(app) {
         req.body.description,
         req.body.category,
         req.body.price,
-        req.body.email,
-        req.params.id
+        req.body.email
       ],
+      [req.params.id],
       function(err, result) {
         if (err) throw err;
         console.log("Ad/Post Successfully Updated!", result);
@@ -110,7 +110,7 @@ module.exports = function(app) {
   });
 
   // Get all posts by filter
-  app.get("/api/posts/category", urlencodedParser, function(req, res) {
+  app.post("/api/posts/category", urlencodedParser, function(req, res) {
     // console.log(req.body);
 
     if (!req.body) return res.sendStatus(400);
@@ -120,7 +120,7 @@ module.exports = function(app) {
     connection.query(queryString, [req.body.category], function(err, result) {
       if (err) throw err;
       console.log("Products Available!", result);
-      res.redirect("/categoryPage.html");
+      res.sendFile("/categoryPage.html");
       res.end();
     });
   });
