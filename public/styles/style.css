@@ -22,7 +22,11 @@ html {
 }
 
 .main{
-  padding-bottom: 25px;
+  padding-bottom: 40px;
+}
+
+.information{
+  padding-left: 40px;
 }
 /* Navbar */
 .navbar-brand{
@@ -100,7 +104,7 @@ opacity: 0.7;
   text-align: center;
 }
 
-#lgnn,#return,#logout,#enter,#back{
+#lgnn,#return,#enter,#back{
   background-color:blanchedalmond;
   font-family: 'Charmonman', cursive;
   color:black;
