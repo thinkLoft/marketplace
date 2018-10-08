@@ -14,12 +14,11 @@ module.exports = function(app) {
 
   // GET individual post
   app.get("/api/posts/:id", function(req, res) {
-    console.log(req.params.id);
-    
-    var adId = req.params.id
+     
+    var postId = req.params.id
 
     var queryString =
-      "SELECT * FROM products WHERE id=" + adId + ";";
+      "SELECT * FROM products WHERE id=" + postId + ";";
 
       connection.query(
       queryString, function(err, result) {

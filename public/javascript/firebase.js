@@ -34,7 +34,7 @@ function displayNav(x) {
   if (x === true) {
     // User who is signed in
     html =
-      '<a href="/" class="item">Home</a><a href="MyAds.html" class="item">My Ads</a><a href="/postAd" class="item">Post An Ad</a><a id="logout" href="#" class="item">Logout</a>';
+      '<a id="navHome" class="item">Home</a><a href="MyAds.html" class="item">My Ads</a><a href="/postAd" class="item">Post An Ad</a><a id="logout" href="#" class="item">Logout</a>';
   } else {
     // No User
     html =

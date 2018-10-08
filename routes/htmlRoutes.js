@@ -16,7 +16,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../views/feedback.html"));
   });
 
-  app.get("/individualAd", function(req, res) {
+  app.get("/individualAd/*", function(req, res) {
     res.sendFile(path.join(__dirname, "../views/individualAds.html"));
   });
 

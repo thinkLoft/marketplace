@@ -9,6 +9,8 @@ $(document).ready(function() {
             method: "GET",
             url: "/api/posts/",
         }).then(function(data) {
+            var html = '';
+            $('#homepage').html(html);
             data.forEach(function(ad) {
                postID = ad.id;
                posttitle = ad.title;
@@ -19,7 +21,7 @@ $(document).ready(function() {
                sold = ad.sold;
                postimageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZciSJH_AN2H-czNXGJFIqgyxy7uN0KhfMTNbTg7mQW277DhCpw";
              
-               html = '<div class="row"><div class="col-sm-4 indexImage"><img src="' + postimageURL + '" alt="cottage" width="200" height="200"></div><div class="col-sm-8"><div class="row"><div class="col title">' + posttitle + '</div></div><div class="row"><div class="col description">' + postdescription.slice(0, 250) + '</div></div><br><div class="row"><div class="col category">' + category + '</div></div><div class="row"><div class="col readMore"><a href="/api/posts/' + postID + '">Read More</a></div></div><br><div class="row"><div class="col price">' + postprice + '</div></div></div></div>'
+               html = '<div class="row"><div class="col-sm-4 indexImage"><img src="' + postimageURL + '" alt="cottage" width="200" height="200"></div><div class="col-sm-8"><div class="row"><div class="col title">' + posttitle + '</div></div><div class="row"><div class="col description">' + postdescription.slice(0, 250) + '</div></div><br><div class="row"><div class="col category">' + category + '</div></div><div class="row"><div class="col readMore"><button class="readmore" id="' + postID + '">Read More</button></div></div><br><div class="row"><div class="col price">' + postprice + '</div></div></div></div>'
 
                $('#homepage').append(html);
             });
@@ -27,7 +29,7 @@ $(document).ready(function() {
             
       }
 
-      // Get Posts Trigger ===============
+      // Loads Home Page - Get Posts Trigger ===============
       getPosts();
       
 
@@ -36,31 +38,43 @@ $(document).ready(function() {
     // =======================================
 
     function getAd(id) {
-        id = 1;
         $.ajax({
             method: "GET",
             url: "/api/posts/" + id,
         }).then(function(data) {
-            console.log(data);
-            // data.forEach(function(ad) {
-            //    postID = ad.id;
-            //    posttitle = ad.title;
-            //    category = ad.category;
-            //    postdescription = ad.description;
-            //    postprice = ad.price;
-            //    user = ad.userID;
-            //    sold = ad.sold;
-            //    postimageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZciSJH_AN2H-czNXGJFIqgyxy7uN0KhfMTNbTg7mQW277DhCpw";
+            data.forEach(function(ad) {
+               postID = ad.id;
+               posttitle = ad.title;
+               category = ad.category;
+               postdescription = ad.description;
+               postprice = ad.price;
+               user = ad.userID;
+               sold = ad.sold;
+               postimageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZciSJH_AN2H-czNXGJFIqgyxy7uN0KhfMTNbTg7mQW277DhCpw";
              
-            //    html = '<div class="row"><div class="col-sm-4 indexImage"><img src="' + postimageURL + '" alt="cottage" width="200" height="200"></div><div class="col-sm-8"><div class="row"><div class="col title">' + posttitle + '</div></div><div class="row"><div class="col description">' + postdescription.slice(0, 250) + '</div></div><br><div class="row"><div class="col category">' + category + '</div></div><div class="row"><div class="col readMore"><a href="/api/posts/' + postID + '">Read More</a></div></div><br><div class="row"><div class="col price">' + postprice + '</div></div></div></div>'
+               html = '<div class="row"><div class="col-sm-4 indexImage"><img src="' + postimageURL + '" alt="cottage" width="200" height="200"></div><div class="col-sm-8"><div class="row"><div class="col title">' + posttitle + '</div></div><div class="row"><div class="col description">' + postdescription.slice(0, 250) + '</div></div><br><div class="row"><div class="col category">' + category + '</div></div><div class="row"><div class="col"><button id="goHome">Go Back</button></div></div><br><div class="row"><div class="col price">' + postprice + '</div></div></div></div>'
 
-            //    $('#homepage').append(html);
-            // });
+               $('#homepage').html(html);
+            });
         });
             
       }
-    // Get Ad Trigger ===============    
-      getAd();
+    // Get Ad Trigger =============== 
+    $(document).on('click', '.readMore', function(event){
+        getAd(event.target.id);
+    })   
+
+    // Go home Trigger
+    $(document).on('click', '#goHome', function(){
+        getPosts();
+    })   
+
+        // Go Home Nav Trigger
+        $(document).on('click', '#navHome', function(){
+            getPosts();
+        })   
+    
+     
 
     // =======================================
     // ======== Categories and Filters =======
