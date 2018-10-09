@@ -5,20 +5,23 @@ USE marketplacedb;
 
 CREATE TABLE user
 (
-        userID MEDIUMINT
-        auto_increment NOT NULL,
+        userID mediumint
+        auto_increment,
 firstName VARCHAR
         (255) NOT NULL,
 lastName VARCHAR
         (255) NOT NULL, 
-email VARCHAR
+  email VARCHAR
         (255) NOT NULL,
+key
+        (userID),
 primary key
-        (userID)
+        (email)
 );
 
         select *
-        from user;
+        from user
+        order by userID;
 
         CREATE TABLE products
         (
@@ -38,9 +41,18 @@ email VARCHAR
                 (255) NOT NULL,
 sold boolean DEFAULT FALSE,
 primary key
-                (id)
-);
+                (id),
+constraint fk_email foreign key
+                (email)
+references user
+                (email)
+on
+                delete cascade on
+                update cascade);
 
 
                 select *
                 from products;
+
+                delete from products where email = "noemail@email.com";
+    
