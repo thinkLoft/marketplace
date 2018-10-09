@@ -23,11 +23,10 @@ $(document).ready(function() {
              
                html = '<div class="row main"><div class="col-sm-4 indexImage"><img src="' + postimageURL + '" alt="cottage" width="200" height="200"></div><div class="col-sm-8"><div class="row"><div class="col title">' + posttitle + '</div></div><div class="row"><div class="col description">' + postdescription.slice(0, 250) + '</div></div><br><div class="row"><div class="col category">' + category + '</div></div><div class="row"><div class="col readMore"><button class="readmore" id="' + postID + '">Read More</button></div></div><br><div class="row"><div class="col price">' + postprice + '</div></div></div></div>'
 
-               $('#homepage').append(html);
-            });
-        });
-            
-      }
+        $("#homepage").append(html);
+      });
+    });
+  }
 
       // Loads Home Page - Get Posts Trigger ===============
       getPosts();
@@ -59,6 +58,11 @@ $(document).ready(function() {
         });
             
       }
+   
+    // =======================================
+    // ======== Listener and Triggers ========
+    // =======================================   
+
     // Get Ad Trigger =============== 
     $(document).on('click', '.readMore', function(event){
         getAd(event.target.id);
@@ -69,10 +73,10 @@ $(document).ready(function() {
         getPosts();
     })   
 
-        // Go Home Nav Trigger
-        $(document).on('click', '#navHome', function(){
-            getPosts();
-        })   
+    // Go Home Nav Trigger
+    $(document).on('click', '#navHome', function(){
+        getPosts();
+    })   
     
      
 
