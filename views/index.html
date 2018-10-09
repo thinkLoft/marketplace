@@ -19,12 +19,26 @@
 
 <body>
   <header>
-    <a class="navbar-brand">Marketplace</a>
+    <a class="navbar-brand" href="/">Marketplace</a>
     <div class="insertNav" id="nav">
       <!-- Nav will get filled in here-->
     </div>
   </header>
   <br>
+
+  <form id="categorylist" action="/api/posts/category" method="GET">
+    <label for="search">Search by Category</label>
+    <input list="category" name="category">
+    <datalist id="category">
+      <option value="electronics">
+      <option value="Furniture">
+      <option value="Homedecore">
+      <option value="Cars">
+      <option value="Hardware">
+    </datalist>
+    <input type="submit">
+  </form>
+
   <div id="homepage" class="container">
 
     <div class="row main">

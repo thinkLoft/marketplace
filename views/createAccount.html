@@ -12,12 +12,13 @@
   <link rel="stylesheet" type="text/css" href="../styles/style.css">
   <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700" rel="stylesheet">
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+  <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body id="createAccountBody">
 
   <div id="signUp" class="container">
-    <form id="createAccount" method="POST" action="/api/posts/createUser">
+    <form id="createAccount" method="POST" action="/api/posts/createUser" onsubmit="return submitUserForm();">
 
       <div id="signUpForm" class="form-group">
         <h1 id="signUpHead">Marketplace</h1>
@@ -37,10 +38,20 @@
           <input type="password" class="form-control" id="password" placeholder="Password">
         </div>
 
+        <div class="g-recaptcha" data-sitekey="6LdhGnQUAAAAANhiv4gD23f9sUZIs1oP5HCycswu" data-callback="verifyCaptcha"></div>
+        <div id="g-recaptcha-error"></div>
+
         <div id="loginButton">
-          <div id="enter" class="btn btn-primary">Create Account</div>
+          <input type="submit" name="submit" value="Create Account" id="enter" class="btn btn-primary" />
           <a id="return" class="btn btn-primary" href="index.html">Back</a>
         </div>
+
+        <!-- <button class="btn" id="btn-validate">Validate reCAPTCHA</button> -->
+
+        <!-- <div id="loginButton">
+          <div id="enter" class="btn btn-primary" class="btn" id="btn-validate">Create Account</div>
+          <a id="return" class="btn btn-primary" href="index.html">Back</a>
+        </div> -->
       </div>
     </form>
   </div>
@@ -52,6 +63,23 @@
     </div>
   </footer>
   <script src="../javascript/firebase.js"></script>
+  <!-- <script src="../javascript/captcha.js"></script> -->
+
+  <script>
+    function submitUserForm() {
+      var response = grecaptcha.getResponse();
+      if (response.length == 0) {
+        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+        return false;
+      }
+      return true;
+    }
+
+    function verifyCaptcha() {
+      document.getElementById('g-recaptcha-error').innerHTML = '';
+    }
+  </script>
+
 </body>
 
 </html>
