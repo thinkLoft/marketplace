@@ -10,6 +10,10 @@ html {
 
 /* index page */
 
+#indexBody{
+  background-color: rgb(245, 245, 245);
+}
+
 #indexImage {
   text-align: right;
 }
@@ -34,6 +38,23 @@ html {
 .information {
   padding-left: 40px;
 }
+
+.searchC{
+  font-family: "Charmonman", cursive;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+#categorylist{
+  text-align: right;
+}
+
+#submitButton{
+  font-family: "Charmonman", cursive;
+  font-size: 18px;
+  background-color:rgb(230, 166, 165);
+}
+
 /* Navbar */
 .navbar-brand {
   font-family: "Charmonman", cursive;
