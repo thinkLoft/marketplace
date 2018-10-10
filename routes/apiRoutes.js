@@ -13,7 +13,6 @@ module.exports = function(app) {
 
   // Get all posts - WORKING!!
   app.get("/api/posts/", urlencodedParser, function(req, res) {
-    console.log(req.body);
     // res.render("createAccount.html", { qs: req.query });
 
     if (!req.body) return res.sendStatus(400);
