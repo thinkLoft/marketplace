@@ -11,38 +11,23 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="../styles/style.css">
   <link href="https://fonts.googleapis.com/css?family=Charmonman:400,700" rel="stylesheet">
+
   <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
 
 </head>
 
 
-<body id="individualAdsBody">
+<body>
   <header>
     <a class="navbar-brand">Marketplace</a>
     <div class="insertNav" id="nav">
       <!-- Nav will get filled in here-->
     </div>
   </header>
+  <br>
 
-  <div id="adCard" class="container">
-    <!-- Ads will go in here -->
-    <div id="adImage" class="card" style="width: 300px;">
-      <img class="card-img-top" src="../styles/assets/images/car.jpg" alt="Card image cap">
-    </div>
-    <br>
-    <div id="adDescription" class="container">
-      <div class="card-body">
-        <h5 class="card-title">Car</h5>
-        <p class="card-text">Mercedes Benz</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Price</li>
-        <li class="list-group-item">Seller</li>
-      </ul>
-      <div class="card-body">
-        <a href="#" class="card-link">Contact Seller</a>
-      </div>
-    </div>
+  <div id="categoryPage" class="container">
+
   </div>
 
   <footer class="footer">
@@ -51,7 +36,9 @@
     </div>
   </footer>
 
-  <script src="../javascript/getpost.js"></script>
+
+  <script src="../javascript/loadCategory.js"></script>
+
   <script src="../javascript/firebase.js"></script>
 </body>
 
