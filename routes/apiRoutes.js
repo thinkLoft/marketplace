@@ -1,3 +1,4 @@
+
 // var db = require("../models/models");
 var connection = require("../config/connection.js");
 var express = require("express");
@@ -49,6 +50,35 @@ module.exports = function(app) {
         res.end();
       }
     );
+  });
+  
+  // GET individual post
+  app.get("/api/posts/:id", function(req, res) {
+     
+    var postId = req.params.id
+
+    var queryString =
+      "SELECT * FROM products WHERE id=" + postId + ";";
+
+      connection.query(
+      queryString, function(err, result) {
+        if (err) throw err;
+        res.json(result)
+      }
+    );
+
+    
+  });
+
+
+// Delete a post by id (must be user that creates ad)
+app.delete("/api/posts/:id", function(req, res) {
+  db.deleteProductProduct(
+    { 
+    where: { 
+      id: req.params.id 
+      } 
+    })
   });
 
   // POST route for creating a new post
@@ -201,3 +231,6 @@ module.exports = function(app) {
   //   });
   // });
 };
+
+
+
