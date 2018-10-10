@@ -2,7 +2,7 @@ $(document).ready(function() {
   function getPosts() {
     $.ajax({
       method: "GET",
-      url: "/api/posts/category"
+      url: "/api/posts/category/:category"
     }).then(function(data) {
       console.log(
         "Successfully displayed exsisting posts according to category"
@@ -26,7 +26,7 @@ $(document).ready(function() {
           postdescription.slice(0, 250) +
           '</div></div><br><div class="row"><div class="col category">' +
           category +
-          '</div></div><div class="row"><div class="col readMore"><a href="/api/posts/category' +
+          '</div></div><div class="row"><div class="col readMore"><a href="/api/posts/category/:category' +
           postID +
           '">Read More</a></div></div><br><div class="row"><div class="col price">' +
           postprice +
