@@ -71,7 +71,7 @@ function getUserPosts(email) {
       var html = '';
       $('#homepage').html(html);
       if(data === undefined || data.length == 0){
-        html = '<h1>Looks like you don\'t have any ads. You should probably go post some.'
+        html = '<h1>Looks like you don\'t have any ads. You should probably go post some.\n<button id="goHome">Go Back</button>'
         $('#homepage').html(html);
       } else {
         data.forEach(function(ad) {
@@ -84,7 +84,7 @@ function getUserPosts(email) {
               sold = ad.sold;
               postimageURL = ad.image;
             
-              html = '<div class="row main"><div class="col-sm-4 indexImage"><img src="' + postimageURL + '" alt="cottage" width="200" height="200"></div><div class="col-sm-8"><div class="row"><div class="col title">' + posttitle + '</div></div><div class="row"><div class="col description">' + postdescription.slice(0, 250) + '</div></div><br><div class="row"><div class="col category">' + category + '</div></div><div class="row"><div class="col"><button class="editButton" value="' + postID + '">Edit</button><button class="deleteButton" value="' + postID + '">Delete</button></div></div><br><div class="row"><div class="col price">' + postprice + '</div></div></div></div>'
+              html = '<div class="row main"><div class="col-sm-4 indexImage"><img src="' + postimageURL + '" alt="cottage" width="200" height="200"></div><div class="col-sm-8"><div class="row"><div class="col title">' + posttitle + '</div></div><div class="row"><div class="col description">' + postdescription.slice(0, 250) + '</div></div><br><div class="row"><div class="col category">' + category + '</div></div><div class="row"><div class="col"><button class="deleteButton" value="' + postID + '">Delete</button></div></div><br><div class="row"><div class="col price">' + postprice + '</div></div></div></div>'
 
         $("#homepage").append(html);
         });
