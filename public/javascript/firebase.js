@@ -16,9 +16,10 @@ var user;
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // user is signed in.
-    user = firebase.auth().currentUser;
     console.log("user!", firebase.auth().currentUser.email);
     displayNav(true);
+    userEmail = firebase.auth().currentUser.email;
+    $("#emailIDLink").val(userEmail);
   } else {
     // No user is signed in.
     console.log("no user!");
@@ -35,7 +36,7 @@ function displayNav(x) {
   if (x === true) {
     // User who is signed in
     html =
-      '<a id="navHome" class="item">Home</a><a href="MyAds.html" class="item">My Ads</a><a href="/postAd" class="item">Post An Ad</a><a id="logout" href="#" class="item">Logout</a>';
+      '<a href="/" class="item">Home</a><a href="#" id="navMyAds" class="item">My Ads</a><a href="/postAd" class="item">Post An Ad</a><a id="logout" href="#" class="item">Logout</a>';
   } else {
     // No User
     html =

@@ -10,7 +10,6 @@ module.exports = function(app) {
 
   // Get all posts - WORKING!!
   app.get("/api/posts/", urlencodedParser, function(req, res) {
-    console.log(req.body);
     // res.render("createAccount.html", { qs: req.query });
 
     if (!req.body) return res.sendStatus(400);
@@ -20,7 +19,7 @@ module.exports = function(app) {
 
     connection.query(queryString, function(err, result) {
       if (err) throw err;
-      console.log("Products Available!", result);
+      // console.log("Products Available!", result);
       res.json(result);
       res.end();
     });
@@ -73,7 +72,7 @@ module.exports = function(app) {
 
   // Create a new post - WORKING!!
   app.post("/api/posts/createPost/", urlencodedParser, function(req, res) {
-    console.log(req.body);
+
 
     if (!req.body) return res.sendStatus(400);
 
@@ -92,7 +91,7 @@ module.exports = function(app) {
       ],
       function(err, result) {
         if (err) throw err;
-        console.log("Ad/Post Successfully Added!", result);
+        // console.log("Ad/Post Successfully Added!", result);
         res.redirect("/");
         res.end();
       }
@@ -101,8 +100,7 @@ module.exports = function(app) {
 
   // UPDATE/Edit Product - WORKING!!
   app.post("/api/posts/id/:id", urlencodedParser, function(req, res) {
-    console.log(req.body);
-
+    
     if (!req.body) return res.sendStatus(400);
 
     var queryString =
@@ -121,7 +119,7 @@ module.exports = function(app) {
       ],
       function(err, result) {
         if (err) throw err;
-        console.log("Ad/Post Successfully Updated!", result);
+        // console.log("Ad/Post Successfully Updated!", result);
         // res.redirect("/");
         res.json(result);
         res.end();
@@ -131,7 +129,7 @@ module.exports = function(app) {
 
   // UPDATE/Edit User - WORKING!!
   app.post("/api/posts/user/:email", urlencodedParser, function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
 
     if (!req.body) return res.sendStatus(400);
 
@@ -143,7 +141,7 @@ module.exports = function(app) {
       [req.body.firstName, req.body.lastName, req.body.email, req.params.email],
       function(err, result) {
         if (err) throw err;
-        console.log("Ad/Post Successfully Updated!", result);
+        // console.log("Ad/Post Successfully Updated!", result);
         // res.redirect("/");
         res.json(result);
         res.end();
@@ -173,7 +171,7 @@ module.exports = function(app) {
 
   // Get all posts/Ads by User - WORKING!!
   app.get("/api/posts/email/:email", urlencodedParser, function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
 
     if (!req.body) return res.sendStatus(400);
 
@@ -181,7 +179,7 @@ module.exports = function(app) {
 
     connection.query(queryString, [req.params.email], function(err, result) {
       if (err) throw err;
-      console.log("Products Available for this user!", result);
+      // console.log("Products Available for this user!", result);
       res.json(result);
       res.end();
     });
@@ -197,7 +195,7 @@ module.exports = function(app) {
 
     connection.query(queryString, [req.params.id], function(err, result) {
       if (err) throw err;
-      console.log("Products Deleted!", result);
+      // console.log("Products Deleted!", result);
       res.json(result);
       res.end();
     });
@@ -213,7 +211,7 @@ module.exports = function(app) {
 
     connection.query(queryString, [req.params.email], function(err, result) {
       if (err) throw err;
-      console.log("User Deleted!", result);
+      // console.log("User Deleted!", result);
       res.json(result);
       res.end();
     });
