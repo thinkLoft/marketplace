@@ -1,4 +1,3 @@
-
 // var db = require("../models/models");
 var connection = require("../config/connection.js");
 var express = require("express");
@@ -8,7 +7,6 @@ var bodyParser = require("body-parser");
 var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 module.exports = function(app) {
-  
   /////////// POST INFORMATION \\\\\\\\\
 
   // Get all posts - WORKING!!
@@ -52,34 +50,26 @@ module.exports = function(app) {
       }
     );
   });
-  
+
   // GET individual post
   app.get("/api/posts/:id", function(req, res) {
-     
-    var postId = req.params.id
+    var postId = req.params.id;
 
-    var queryString =
-      "SELECT * FROM products WHERE id=" + postId + ";";
+    var queryString = "SELECT * FROM products WHERE id=" + postId + ";";
 
-      connection.query(
-      queryString, function(err, result) {
-        if (err) throw err;
-        res.json(result)
-      }
-    );
-
-    
+    connection.query(queryString, function(err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
   });
 
-
-// Delete a post by id (must be user that creates ad)
-app.delete("/api/posts/:id", function(req, res) {
-  db.deleteProductProduct(
-    { 
-    where: { 
-      id: req.params.id 
-      } 
-    })
+  // Delete a post by id (must be user that creates ad)
+  app.delete("/api/posts/:id", function(req, res) {
+    db.deleteProductProduct({
+      where: {
+        id: req.params.id
+      }
+    });
   });
 
   // Create a new post - WORKING!!
@@ -261,6 +251,3 @@ app.delete("/api/posts/:id", function(req, res) {
   //   });
   // });
 };
-
-
-
