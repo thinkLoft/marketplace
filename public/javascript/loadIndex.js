@@ -113,7 +113,7 @@ function getUserPosts(email) {
 
     // Get Ad Trigger =============== 
     $(document).on('click', '.readMore', function(event){
-      getAd(event.target.id);
+      getAd(event.target.value);
     })   
 
     // Go home Trigger
