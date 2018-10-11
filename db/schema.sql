@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS marketplacedb;
+-- DROP DATABASE IF EXISTS marketplacedb;
 CREATE DATABASE marketplacedb;
 
 USE marketplacedb;
@@ -18,10 +18,6 @@ key
 primary key
         (email)
 );
-
-        select *
-        from user
-        order by userID;
 
         CREATE TABLE products
         (
@@ -49,10 +45,3 @@ references user
 on
                 delete cascade on
                 update cascade);
-
-
-                select *
-                from products;
-
-                delete from products where email = "noemail@email.com";
-    
