@@ -22,7 +22,7 @@ module.exports = function(app) {
 
     connection.query(queryString, function(err, result) {
       if (err) throw err;
-      console.log("Products Available!", result);
+      // console.log("Products Available!", result);
       res.json(result);
       res.end();
     });
@@ -83,7 +83,7 @@ app.delete("/api/posts/:id", function(req, res) {
 
   // Create a new post - WORKING!!
   app.post("/api/posts/createPost/", urlencodedParser, function(req, res) {
-    console.log(req.body);
+
 
     if (!req.body) return res.sendStatus(400);
 
@@ -102,7 +102,7 @@ app.delete("/api/posts/:id", function(req, res) {
       ],
       function(err, result) {
         if (err) throw err;
-        console.log("Ad/Post Successfully Added!", result);
+        // console.log("Ad/Post Successfully Added!", result);
         res.redirect("/");
         res.end();
       }
@@ -111,8 +111,7 @@ app.delete("/api/posts/:id", function(req, res) {
 
   // UPDATE/Edit Product - WORKING!!
   app.post("/api/posts/id/:id", urlencodedParser, function(req, res) {
-    console.log(req.body);
-
+    
     if (!req.body) return res.sendStatus(400);
 
     var queryString =
@@ -131,7 +130,7 @@ app.delete("/api/posts/:id", function(req, res) {
       ],
       function(err, result) {
         if (err) throw err;
-        console.log("Ad/Post Successfully Updated!", result);
+        // console.log("Ad/Post Successfully Updated!", result);
         // res.redirect("/");
         res.json(result);
         res.end();
@@ -141,7 +140,7 @@ app.delete("/api/posts/:id", function(req, res) {
 
   // UPDATE/Edit User - WORKING!!
   app.post("/api/posts/user/:email", urlencodedParser, function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
 
     if (!req.body) return res.sendStatus(400);
 
@@ -153,7 +152,7 @@ app.delete("/api/posts/:id", function(req, res) {
       [req.body.firstName, req.body.lastName, req.body.email, req.params.email],
       function(err, result) {
         if (err) throw err;
-        console.log("Ad/Post Successfully Updated!", result);
+        // console.log("Ad/Post Successfully Updated!", result);
         // res.redirect("/");
         res.json(result);
         res.end();
@@ -183,7 +182,7 @@ app.delete("/api/posts/:id", function(req, res) {
 
   // Get all posts/Ads by User - WORKING!!
   app.get("/api/posts/email/:email", urlencodedParser, function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
 
     if (!req.body) return res.sendStatus(400);
 
@@ -191,7 +190,7 @@ app.delete("/api/posts/:id", function(req, res) {
 
     connection.query(queryString, [req.params.email], function(err, result) {
       if (err) throw err;
-      console.log("Products Available for this user!", result);
+      // console.log("Products Available for this user!", result);
       res.json(result);
       res.end();
     });
@@ -207,7 +206,7 @@ app.delete("/api/posts/:id", function(req, res) {
 
     connection.query(queryString, [req.params.id], function(err, result) {
       if (err) throw err;
-      console.log("Products Deleted!", result);
+      // console.log("Products Deleted!", result);
       res.json(result);
       res.end();
     });
@@ -223,7 +222,7 @@ app.delete("/api/posts/:id", function(req, res) {
 
     connection.query(queryString, [req.params.email], function(err, result) {
       if (err) throw err;
-      console.log("User Deleted!", result);
+      // console.log("User Deleted!", result);
       res.json(result);
       res.end();
     });
