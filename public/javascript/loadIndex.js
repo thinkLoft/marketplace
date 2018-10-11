@@ -19,7 +19,7 @@ $(document).ready(function() {
                postprice = ad.price;
                user = ad.userID;
                sold = ad.sold;
-               postimageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZciSJH_AN2H-czNXGJFIqgyxy7uN0KhfMTNbTg7mQW277DhCpw";
+               postimageURL = ad.image;
              
                html = '<div class="row main"><div class="col-sm-4 indexImage"><img src="' + postimageURL + '" alt="cottage" width="200" height="200"></div><div class="col-sm-8"><div class="row"><div class="col title">' + posttitle + '</div></div><div class="row"><div class="col description">' + postdescription.slice(0, 250) + '</div></div><br><div class="row"><div class="col category">' + category + '</div></div><div class="row"><div class="col readMore"><button class="readmore" id="' + postID + '">Read More</button></div></div><br><div class="row"><div class="col price">' + postprice + '</div></div></div></div>'
 
@@ -49,7 +49,7 @@ $(document).ready(function() {
                postprice = ad.price;
                user = ad.userID;
                sold = ad.sold;
-               postimageURL = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqZciSJH_AN2H-czNXGJFIqgyxy7uN0KhfMTNbTg7mQW277DhCpw";
+               postimageURL = ad.image;
              
                html = '<div class="row"><div class="col-sm-4 indexImage"><img src="' + postimageURL + '" alt="cottage" width="200" height="200"></div><div class="col-sm-8"><div class="row"><div class="col title">' + posttitle + '</div></div><div class="row"><div class="col description">' + postdescription.slice(0, 250) + '</div></div><br><div class="row"><div class="col category">' + category + '</div></div><div class="row"><div class="col"><button id="goHome">Go Back</button></div></div><br><div class="row"><div class="col price">' + postprice + '</div></div></div></div>'
 
